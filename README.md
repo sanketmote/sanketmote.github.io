@@ -46,7 +46,7 @@ This project built using
 <!-- LIVE VERSION -->
 ## Live version
 
-You can see it [here]( http://smresume.byethost33.com/)
+You can see it <a href="http://smresume.byethost33.com/" target="_blank">here</a>
 
 ## Author
 # Sanket Mote 

@@ -6,9 +6,9 @@
 
 * [About the Project](#about-the-project)
 * [Built With](#built-with)
-* [Features](#usage)
-* [Section](#contributing)
-* [Author](#author)
+* [Features](#Features)
+* [Section](#Section)
+* [Author](#Author)
 
 
 <!-- ABOUT THE PROJECT -->

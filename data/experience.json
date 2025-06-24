@@ -1,0 +1,34 @@
+{
+  "experience": [
+    {
+      "position": "Staff Software Engineer",
+      "company": "Druva, Pune",
+      "duration": "July 2023 — Present",
+      "responsibilities": [
+        "Reduced Lambda execution time by 50% by implementing JWT caching, resolving timeout issues, and improving the DB connection pooling in golang.",
+        "Designed and developed new Python APIs, Dockerized the build pipeline, and integrated OpenTelemetry with SNS and SQS for better tracing and error monitoring.",
+        "Enhanced UDA encryption and integrated ransomware metadata and analysis based on NIST standards.",
+        "Led UI/UX revamp changes, created new APIs, and delivered critical hotfixes to resolve customer‑facing issues."
+      ]
+    },
+    {
+      "position": "Software Engineer Intern",
+      "company": "Druva, Pune",
+      "duration": "Jan 2023 — July 2023",
+      "responsibilities": [
+        "Addressed SAST vulnerabilities by improving JWK decoding and securing public keys using the AWS SSM Parameter Store.",
+        "Automated database upgrades and improved API performance by optimizing queries and indexes.",
+        "Fixed multiple bugs, including lock wait timeouts, inconsistent file paths, and binary incompatibility issues."
+      ]
+    },
+    {
+      "position": "Backend Developer",
+      "company": "Freelancing, Remote",
+      "duration": "July 2021 — Jan 2022",
+      "responsibilities": [
+        "Developed RESTful APIs using Node.js to handle data operations for e‑Commerce features like basket, cart, filters, searching, sorting, and orders.",
+        "Implemented APIs to import product data from Excel sheets and integrate it into the system, enhancing the product management process."
+      ]
+    }
+  ]
+} 

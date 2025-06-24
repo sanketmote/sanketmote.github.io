@@ -399,11 +399,6 @@ class BackgroundSwitcher {
     addControls() {
         const controls = document.createElement('div');
         controls.className = 'background-controls';
-        controls.innerHTML = `
-            <button class="bg-btn active" data-bg="particles">Particles</button>
-            <button class="bg-btn" data-bg="waves">Waves</button>
-            <button class="bg-btn" data-bg="fluid">Fluid</button>
-        `;
         
         document.querySelector('.hero').appendChild(controls);
         
@@ -421,8 +416,3 @@ class BackgroundSwitcher {
         });
     }
 }
-
-// Initialize background switcher
-document.addEventListener('DOMContentLoaded', function() {
-    new BackgroundSwitcher();
-}); 

@@ -97,9 +97,8 @@
             </div>
             
             <div class="hero-image">
-                <div class="profile-card">
-                    <img src="assets/images/sanket.png" alt="Sanket Mote" class="profile-img">
-                    <div class="profile-glow"></div>
+                <div class="image-container">
+                    <img src="assets/images/lp.svg" alt="Sanket Mote" class="hero-svg" style="max-width: 900px; width: 100%; height: auto;">
                 </div>
             </div>
         </div>
@@ -168,124 +167,12 @@
             </div>
             
             <div class="skills-content">
-                <div class="skills-categories">
-                    <button class="category-btn active" data-category="all">All</button>
-                    <button class="category-btn" data-category="languages">Languages</button>
-                    <button class="category-btn" data-category="tools">Tools/Frameworks</button>
-                    <button class="category-btn" data-category="cloud">Cloud/DevOps</button>
-                    <button class="category-btn" data-category="databases">Databases</button>
+                <div class="skills-categories" id="skillsCategories">
+                    <!-- Categories will be loaded dynamically -->
                 </div>
                 
-                <div class="skills-grid">
-                    <div class="skill-card" data-category="languages">
-                        <div class="skill-icon">
-                            <i class="fab fa-golang"></i>
-                        </div>
-                        <h3>Go (Golang)</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="90"></div>
-                        </div>
-                        <span class="skill-percentage">90%</span>
-                    </div>
-                    
-                    <div class="skill-card" data-category="languages">
-                        <div class="skill-icon">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <h3>Python</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
-                        </div>
-                        <span class="skill-percentage">85%</span>
-                    </div>
-                    
-                    <div class="skill-card" data-category="languages">
-                        <div class="skill-icon">
-                            <i class="fab fa-js"></i>
-                        </div>
-                        <h3>JavaScript</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="80"></div>
-                        </div>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    
-                    <div class="skill-card" data-category="languages">
-                        <div class="skill-icon">
-                            <i class="fas fa-code"></i>
-                        </div>
-                        <h3>C++</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="75"></div>
-                        </div>
-                        <span class="skill-percentage">75%</span>
-                    </div>
-                    
-                    <div class="skill-card" data-category="cloud">
-                        <div class="skill-icon">
-                            <i class="fab fa-aws"></i>
-                        </div>
-                        <h3>AWS</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
-                        </div>
-                        <span class="skill-percentage">85%</span>
-                    </div>
-                    
-                    <div class="skill-card" data-category="tools">
-                        <div class="skill-icon">
-                            <i class="fab fa-docker"></i>
-                        </div>
-                        <h3>Docker</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="80"></div>
-                        </div>
-                        <span class="skill-percentage">80%</span>
-                    </div>
-                    
-                    <div class="skill-card" data-category="cloud">
-                        <div class="skill-icon">
-                            <i class="fas fa-cloud"></i>
-                        </div>
-                        <h3>Kubernetes</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="75"></div>
-                        </div>
-                        <span class="skill-percentage">75%</span>
-                    </div>
-                    
-                    <div class="skill-card" data-category="databases">
-                        <div class="skill-icon">
-                            <i class="fas fa-database"></i>
-                        </div>
-                        <h3>MySQL</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="85"></div>
-                        </div>
-                        <span class="skill-percentage">85%</span>
-                    </div>
-                    
-                    <div class="skill-card" data-category="tools">
-                        <div class="skill-icon">
-                            <i class="fab fa-git-alt"></i>
-                        </div>
-                        <h3>Git</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="90"></div>
-                        </div>
-                        <span class="skill-percentage">90%</span>
-                    </div>
-                    
-                    <div class="skill-card" data-category="tools">
-                        <div class="skill-icon">
-                            <i class="fab fa-node-js"></i>
-                        </div>
-                        <h3>Node.js</h3>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-progress="80"></div>
-                        </div>
-                        <span class="skill-percentage">80%</span>
-                    </div>
+                <div class="skills-grid" id="skillsGrid">
+                    <!-- Skills will be loaded dynamically -->
                 </div>
             </div>
         </div>
@@ -299,119 +186,12 @@
                 <p class="section-subtitle">Some of my recent work</p>
             </div>
             
-            <div class="projects-categories">
-                <button class="category-btn active" data-category="all">All</button>
-                <button class="category-btn" data-category="ai">AI/ML</button>
-                <button class="category-btn" data-category="web">Web Development</button>
-                <button class="category-btn" data-category="backend">Backend</button>
-                <button class="category-btn" data-category="data">Data Analysis</button>
+            <div class="projects-categories" id="projectsCategories">
+                <!-- Categories will be loaded dynamically -->
             </div>
             
-            <div class="projects-grid">
-                <div class="project-card" data-category="ai">
-                    <div class="project-image">
-                        <img src="assets/images/python.png" alt="Drushti App">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>Drushti</h3>
-                        <p>Developed the Drushti app, designed to assist visually impaired users by providing audible navigation through object detection and distance measurement.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">TensorFlow</span>
-                            <span class="tech-tag">OpenCV</span>
-                            <span class="tech-tag">Flutter</span>
-                            <span class="tech-tag">Flask</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card" data-category="web">
-                    <div class="project-image">
-                        <img src="assets/images/wcespace.PNG" alt="WCE SPACE">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/pavanshinde7494/WCE-SPACE" target="_blank" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="https://wcespace.herokuapp.com/home" target="_blank" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>WCESPACE</h3>
-                        <p>Developed a centralized web application that enables students to easily download academic books classified by branch and year of study.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">EJS</span>
-                            <span class="tech-tag">MongoDB</span>
-                            <span class="tech-tag">Heroku</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card" data-category="backend">
-                    <div class="project-image">
-                        <img src="assets/images/web.jpg" alt="E-Commerce Backend">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="#" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>E-Commerce Backend</h3>
-                        <p>Developed RESTful APIs using Node.js to handle data operations for e-Commerce features like basket, cart, filters, searching, sorting, and orders.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Node.js</span>
-                            <span class="tech-tag">REST APIs</span>
-                            <span class="tech-tag">MySQL</span>
-                            <span class="tech-tag">Express.js</span>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="project-card" data-category="data">
-                    <div class="project-image">
-                        <img src="assets/images/covid3.png" alt="COVID-19 Data Analysis">
-                        <div class="project-overlay">
-                            <div class="project-links">
-                                <a href="https://github.com/sanketmote/COVID19-Data-Analysis-and-Visualization" target="_blank" class="project-link">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#" class="project-link">
-                                    <i class="fas fa-external-link-alt"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="project-content">
-                        <h3>COVID-19 Data Analysis</h3>
-                        <p>Comprehensive analysis and visualization of COVID-19 dataset using Python, Pandas, and Seaborn.</p>
-                        <div class="project-tech">
-                            <span class="tech-tag">Python</span>
-                            <span class="tech-tag">Pandas</span>
-                            <span class="tech-tag">Seaborn</span>
-                            <span class="tech-tag">Data Analysis</span>
-                        </div>
-                    </div>
-                </div>
+            <div class="projects-grid" id="projectsGrid">
+                <!-- Projects will be loaded dynamically -->
             </div>
         </div>
     </section>
@@ -663,6 +443,8 @@
     <!-- JavaScript -->
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
+    <script src="js/skills.js"></script>
+    <script src="js/projects.js"></script>
     <script src="js/particles.js"></script>
   </body>
 </html>

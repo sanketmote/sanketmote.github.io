@@ -1,0 +1,80 @@
+{
+  "categories": [
+    {
+      "id": "all",
+      "name": "All"
+    },
+    {
+      "id": "ai",
+      "name": "AI/ML"
+    },
+    {
+      "id": "web",
+      "name": "Web Development"
+    },
+    {
+      "id": "backend",
+      "name": "Backend"
+    },
+    {
+      "id": "data",
+      "name": "Data Analysis"
+    }
+  ],
+  "projects": [
+    {
+      "title": "Drushti",
+      "category": "ai",
+      "description": "Developed the Drushti app, designed to assist visually impaired users by providing audible navigation through object detection and distance measurement.",
+      "image": "assets/images/python.png",
+      "technologies": ["Python", "TensorFlow", "OpenCV", "Flutter", "Flask"],
+      "github": "#",
+      "live": "#"
+    },
+    {
+      "title": "WCE SPACE",
+      "category": "web",
+      "description": "A comprehensive web platform for Walchand College of Engineering students to access academic resources, announcements, and student services.",
+      "image": "assets/images/wcespace.PNG",
+      "technologies": ["Python", "Flask", "HTML", "CSS", "JavaScript", "Bootstrap"],
+      "github": "https://github.com/pavanshinde7494/WCE-SPACE",
+      "live": "https://wcespace.herokuapp.com/home"
+    },
+    {
+      "title": "Portfolio Website",
+      "category": "web",
+      "description": "A modern, responsive portfolio website showcasing professional experience, skills, and projects with interactive animations.",
+      "image": "assets/images/portolio_website.JPG",
+      "technologies": ["HTML", "CSS", "JavaScript", "Bootstrap"],
+      "github": "#",
+      "live": "https://sanketmote.github.io/"
+    },
+    {
+      "title": "Match Pairing System",
+      "category": "backend",
+      "description": "Developed a backend system for matching and pairing algorithms with efficient data processing and API endpoints.",
+      "image": "assets/images/match_paring.JPG",
+      "technologies": ["Python", "Flask", "SQLAlchemy", "PostgreSQL"],
+      "github": "#",
+      "live": "#"
+    },
+    {
+      "title": "COVID-19 Tracker",
+      "category": "data",
+      "description": "A data analysis project tracking COVID-19 cases with interactive visualizations and real-time data updates.",
+      "image": "assets/images/covid3.png",
+      "technologies": ["Python", "Pandas", "Matplotlib", "Plotly"],
+      "github": "#",
+      "live": "#"
+    },
+    {
+      "title": "Calculator App",
+      "category": "web",
+      "description": "A modern calculator application with advanced mathematical functions and a clean user interface.",
+      "image": "assets/images/calc.jpg",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "github": "#",
+      "live": "#"
+    }
+  ]
+} 

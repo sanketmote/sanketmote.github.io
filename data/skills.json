@@ -1,0 +1,76 @@
+{
+  "categories": [
+    {
+      "id": "all",
+      "name": "All"
+    },
+    {
+      "id": "languages",
+      "name": "Languages"
+    },
+    {
+      "id": "tools",
+      "name": "Tools/Frameworks"
+    },
+    {
+      "id": "cloud",
+      "name": "Cloud/DevOps"
+    },
+    {
+      "id": "databases",
+      "name": "Databases"
+    }
+  ],
+  "skills": [
+    {
+      "name": "Go (Golang)",
+      "category": "languages",
+      "icon": "fab fa-golang"
+    },
+    {
+      "name": "Python",
+      "category": "languages",
+      "icon": "fab fa-python"
+    },
+    {
+      "name": "JavaScript",
+      "category": "languages",
+      "icon": "fab fa-js"
+    },
+    {
+      "name": "C++",
+      "category": "languages",
+      "icon": "fas fa-code"
+    },
+    {
+      "name": "AWS",
+      "category": "cloud",
+      "icon": "fab fa-aws"
+    },
+    {
+      "name": "Docker",
+      "category": "tools",
+      "icon": "fab fa-docker"
+    },
+    {
+      "name": "Kubernetes",
+      "category": "cloud",
+      "icon": "fas fa-cloud"
+    },
+    {
+      "name": "MySQL",
+      "category": "databases",
+      "icon": "fas fa-database"
+    },
+    {
+      "name": "Git",
+      "category": "tools",
+      "icon": "fab fa-git-alt"
+    },
+    {
+      "name": "Node.js",
+      "category": "tools",
+      "icon": "fab fa-node-js"
+    }
+  ]
+} 

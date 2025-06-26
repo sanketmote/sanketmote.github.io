@@ -1,0 +1,22 @@
+{
+  "certifications": [
+    {
+      "title": "Smart India Hackathon (SIH) 2022",
+      "subtitle": "Finalist",
+      "description": "Achieved finalist position in the prestigious Smart India Hackathon, showcasing innovative problem-solving skills and technical expertise.",
+      "icon": "fas fa-trophy"
+    },
+    {
+      "title": "Google KickStart Round H",
+      "subtitle": "Global Rank 1264",
+      "description": "Participated in Google KickStart programming competition and achieved a global rank of 1264, demonstrating strong algorithmic and coding skills.",
+      "icon": "fab fa-google"
+    },
+    {
+      "title": "PCSB Sudo Code Programming Contest",
+      "subtitle": "Ranked 26th",
+      "description": "Achieved 26th rank in the PCSB Sudo Code Programming Contest, showcasing competitive programming abilities and problem-solving skills.",
+      "icon": "fas fa-code"
+    }
+  ]
+} 

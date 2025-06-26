@@ -30,6 +30,9 @@
     <!-- Font Awesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- AOS (Animate On Scroll) Library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/animations.css">
@@ -111,17 +114,17 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">About Me</h2>
                 <p class="section-subtitle">Get to know me better</p>
             </div>
             
             <div class="about-content">
-                <div class="about-image">
+                <div class="about-image" data-aos="fade-right">
                     <img src="assets/images/sanket.png" alt="Sanket Mote" class="about-img">
                 </div>
                 
-                <div class="about-text">
+                <div class="about-text" data-aos="fade-left">
                     <h3>Who I Am</h3>
                     <p>
                         I am Sanket Mote, a Software Development Engineer with 2+ years of experience in backend development. 
@@ -135,23 +138,23 @@
                     </p>
                     
                     <div class="about-stats">
-                        <div class="stat-item">
-                            <span class="stat-number">2+</span>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="200">
+                            <span class="stat-number" data-target="2">2+</span>
                             <span class="stat-label">Years Experience</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">10+</span>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="400">
+                            <span class="stat-number" data-target="10">10+</span>
                             <span class="stat-label">Projects Completed</span>
                         </div>
-                        <div class="stat-item">
-                            <span class="stat-number">5+</span>
+                        <div class="stat-item" data-aos="zoom-in" data-aos-delay="600">
+                            <span class="stat-number" data-target="5">5+</span>
                             <span class="stat-label">Technologies</span>
                         </div>
                     </div>
                     
                     <div class="about-buttons">
-                        <a href="#resume" class="btn btn-primary">View Resume</a>
-                        <a href="#contact" class="btn btn-outline">Contact Me</a>
+                        <a href="#resume" class="btn btn-primary" data-tooltip="View my detailed resume">View Resume</a>
+                        <a href="#contact" class="btn btn-outline" data-tooltip="Get in touch with me">Contact Me</a>
                     </div>
                 </div>
             </div>
@@ -161,17 +164,17 @@
     <!-- Skills Section -->
     <section id="skills" class="skills">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Skills & Expertise</h2>
                 <p class="section-subtitle">Technologies I work with</p>
             </div>
             
             <div class="skills-content">
-                <div class="skills-categories" id="skillsCategories">
+                <div class="skills-categories" id="skillsCategories" data-aos="fade-up" data-aos-delay="200">
                     <!-- Categories will be loaded dynamically -->
                 </div>
                 
-                <div class="skills-grid" id="skillsGrid">
+                <div class="skills-grid" id="skillsGrid" data-aos="fade-up" data-aos-delay="400">
                     <!-- Skills will be loaded dynamically -->
                 </div>
             </div>
@@ -181,16 +184,16 @@
     <!-- Projects Section -->
     <section id="projects" class="projects">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Featured Projects</h2>
                 <p class="section-subtitle">Some of my recent work</p>
             </div>
             
-            <div class="projects-categories" id="projectsCategories">
+            <div class="projects-categories" id="projectsCategories" data-aos="fade-up" data-aos-delay="200">
                 <!-- Categories will be loaded dynamically -->
             </div>
             
-            <div class="projects-grid" id="projectsGrid">
+            <div class="projects-grid" id="projectsGrid" data-aos="fade-up" data-aos-delay="400">
                 <!-- Projects will be loaded dynamically -->
             </div>
         </div>
@@ -199,13 +202,13 @@
     <!-- Resume Section -->
     <section id="resume" class="resume">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Resume</h2>
                 <p class="section-subtitle">My education and experience</p>
             </div>
             
             <div class="resume-content">
-                <div class="resume-tabs">
+                <div class="resume-tabs" data-aos="fade-up" data-aos-delay="200">
                     <button class="tab-btn active" data-tab="education">Education</button>
                     <button class="tab-btn" data-tab="experience">Experience</button>
                     <button class="tab-btn" data-tab="certifications">Certifications</button>
@@ -215,7 +218,7 @@
                     <!-- Education Tab -->
                     <div class="tab-pane active" id="education">
                         <div class="timeline">
-                            <div class="timeline-item">
+                            <div class="timeline-item" data-aos="fade-left">
                                 <div class="timeline-marker"></div>
                                 <div class="timeline-content">
                                     <h3>Bachelor of Technology in Computer Science</h3>
@@ -230,7 +233,7 @@
                     <!-- Experience Tab -->
                     <div class="tab-pane" id="experience">
                         <div class="timeline">
-                            <div class="timeline-item">
+                            <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
                                 <div class="timeline-marker"></div>
                                 <div class="timeline-content">
                                     <h3>Staff Software Engineer</h3>
@@ -245,7 +248,7 @@
                                 </div>
                             </div>
                             
-                            <div class="timeline-item">
+                            <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
                                 <div class="timeline-marker"></div>
                                 <div class="timeline-content">
                                     <h3>Software Engineer Intern</h3>
@@ -259,7 +262,7 @@
                                 </div>
                             </div>
                             
-                            <div class="timeline-item">
+                            <div class="timeline-item" data-aos="fade-left" data-aos-delay="600">
                                 <div class="timeline-marker"></div>
                                 <div class="timeline-content">
                                     <h3>Backend Developer</h3>
@@ -277,7 +280,7 @@
                     <!-- Certifications Tab -->
                     <div class="tab-pane" id="certifications">
                         <div class="certifications-grid">
-                            <div class="certification-card">
+                            <div class="certification-card" data-aos="zoom-in" data-aos-delay="200">
                                 <div class="cert-icon">
                                     <i class="fas fa-trophy"></i>
                                 </div>
@@ -286,7 +289,7 @@
                                 <p>Achieved finalist position in the prestigious Smart India Hackathon, showcasing innovative problem-solving skills and technical expertise.</p>
                             </div>
                             
-                            <div class="certification-card">
+                            <div class="certification-card" data-aos="zoom-in" data-aos-delay="400">
                                 <div class="cert-icon">
                                     <i class="fab fa-google"></i>
                                 </div>
@@ -295,7 +298,7 @@
                                 <p>Participated in Google KickStart programming competition and achieved a global rank of 1264, demonstrating strong algorithmic and coding skills.</p>
                             </div>
                             
-                            <div class="certification-card">
+                            <div class="certification-card" data-aos="zoom-in" data-aos-delay="600">
                                 <div class="cert-icon">
                                     <i class="fas fa-code"></i>
                                 </div>
@@ -307,8 +310,8 @@
                     </div>
                 </div>
                 
-                <div class="resume-download">
-                    <a href="#" class="btn btn-primary" download>
+                <div class="resume-download" data-aos="fade-up" data-aos-delay="800">
+                    <a href="#" class="btn btn-primary" download data-tooltip="Download my resume in PDF format">
                         <i class="fas fa-download"></i>
                         Download Resume (PDF)
                     </a>
@@ -320,14 +323,14 @@
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="container">
-            <div class="section-header">
+            <div class="section-header" data-aos="fade-up">
                 <h2 class="section-title">Get In Touch</h2>
                 <p class="section-subtitle">Let's work together</p>
             </div>
             
             <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
+                <div class="contact-info" data-aos="fade-right">
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="200">
                         <div class="contact-icon">
                             <i class="fas fa-envelope"></i>
                         </div>
@@ -337,7 +340,7 @@
                         </div>
                     </div>
                     
-                    <div class="contact-item">
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="400">
                         <div class="contact-icon">
                             <i class="fas fa-map-marker-alt"></i>
                         </div>
@@ -347,7 +350,7 @@
                         </div>
                     </div>
                     
-                    <div class="contact-item">
+                    <div class="contact-item" data-aos="fade-up" data-aos-delay="600">
                         <div class="contact-icon">
                             <i class="fas fa-phone"></i>
                         </div>
@@ -357,51 +360,51 @@
                         </div>
                     </div>
                     
-                    <div class="social-links">
-                        <a href="https://www.linkedin.com/in/sanketmote" target="_blank" class="social-link">
+                    <div class="social-links" data-aos="fade-up" data-aos-delay="800">
+                        <a href="https://www.linkedin.com/in/sanketmote" target="_blank" class="social-link" data-tooltip="Connect with me on LinkedIn">
                             <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://github.com/sanketmote" target="_blank" class="social-link">
+                        <a href="https://github.com/sanketmote" target="_blank" class="social-link" data-tooltip="Check out my GitHub projects">
                             <i class="fab fa-github"></i>
                         </a>
-                        <a href="https://leetcode.com/sanketmote" target="_blank" class="social-link">
+                        <a href="https://leetcode.com/sanketmote" target="_blank" class="social-link" data-tooltip="View my LeetCode profile">
                             <i class="fas fa-code"></i>
                         </a>
-                        <a href="https://www.hackerrank.com/sanketmote" target="_blank" class="social-link">
+                        <a href="https://www.hackerrank.com/sanketmote" target="_blank" class="social-link" data-tooltip="Check my HackerRank profile">
                             <i class="fab fa-hackerrank"></i>
                         </a>
                     </div>
                 </div>
                 
-                <div class="contact-form">
+                <div class="contact-form" data-aos="fade-left">
                     <form id="contactForm">
-                        <div class="form-group">
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="200">
                             <input type="text" id="name" name="name" required>
                             <label for="name">Your Name</label>
                             <span class="error-message"></span>
                         </div>
                         
-                        <div class="form-group">
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="400">
                             <input type="email" id="email" name="email" required>
                             <label for="email">Your Email</label>
                             <span class="error-message"></span>
                         </div>
                         
-                        <div class="form-group">
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="600">
                             <input type="text" id="subject" name="subject" required>
                             <label for="subject">Subject</label>
                             <span class="error-message"></span>
                         </div>
                         
-                        <div class="form-group">
+                        <div class="form-group" data-aos="fade-up" data-aos-delay="800">
                             <textarea id="message" name="message" rows="5" required></textarea>
                             <label for="message">Your Message</label>
                             <span class="error-message"></span>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary">
-                            <span>Send Message</span>
+                        <button type="submit" class="btn btn-primary" data-aos="fade-up" data-aos-delay="1000" data-tooltip="Send me a message">
                             <i class="fas fa-paper-plane"></i>
+                            Send Message
                         </button>
                     </form>
                 </div>
@@ -441,6 +444,7 @@
     </footer>
 
     <!-- JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="js/main.js"></script>
     <script src="js/animations.js"></script>
     <script src="js/skills.js"></script>

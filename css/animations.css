@@ -450,7 +450,7 @@
 }
 
 .btn:hover {
-    transform: translateY(-2px) scale(1.05);
+    transform: translateY(-1px) scale(1.02);
 }
 
 /* Advanced Button Effects */
@@ -460,8 +460,8 @@
 }
 
 .btn-3d:hover {
-    transform: translateY(-3px) rotateX(10deg);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px) rotateX(5deg);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
 }
 
 /* ===== NAVIGATION ANIMATIONS ===== */
@@ -1028,6 +1028,7 @@
     backface-visibility: hidden;
     will-change: transform;
     position: relative;
+    overflow: hidden;
 }
 
 .project-slide::before {
@@ -1197,6 +1198,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    overflow: hidden;
     margin-bottom: 20px;
 }
 
@@ -1522,6 +1524,7 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
+    overflow: hidden;
     margin-bottom: 20px;
 }
 

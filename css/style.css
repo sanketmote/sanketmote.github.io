@@ -409,6 +409,7 @@ a:hover {
     display: flex;
     gap: 1rem;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .hero-image {
@@ -615,12 +616,14 @@ section {
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
+    overflow: hidden;
 }
 
 /* ===== SKILLS SECTION ===== */
 .skills {
     padding: 5rem 0;
     background: var(--bg-secondary);
+    overflow: hidden;
 }
 
 /* Mobile skills adjustments */
@@ -644,6 +647,7 @@ section {
 
 .skills-content {
     max-width: 1200px;
+    overflow: hidden;
 }
 
 .skills-categories {
@@ -679,6 +683,7 @@ section {
     transition: all 0.3s ease;
     font-size: 1rem;
     font-weight: 500;
+    overflow: hidden;
 }
 
 .category-btn.active,
@@ -744,6 +749,7 @@ section {
     text-align: center;
     margin-top: 2rem;
     display: none; /* Hidden by default on desktop */
+    overflow: hidden;
 }
 
 .skills-view-more .btn {
@@ -773,6 +779,7 @@ section {
 .projects {
     padding: 5rem 0;
     background: var(--bg-primary);
+    overflow: hidden;
 }
 
 /* Mobile projects adjustments */
@@ -800,6 +807,7 @@ section {
     gap: 1rem;
     margin-bottom: 3rem;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 /* Mobile projects categories adjustments */
@@ -824,6 +832,7 @@ section {
     max-width: 100%;
     width: 100%;
     overflow-x: hidden;
+    overflow: hidden;
 }
 
 .project-card {
@@ -881,6 +890,7 @@ section {
 .project-links {
     display: flex;
     gap: 1rem;
+    overflow: hidden;
 }
 
 .project-link {
@@ -895,6 +905,7 @@ section {
     font-size: 1.2rem;
     transition: all 0.3s ease;
     text-decoration: none;
+    overflow: hidden;
 }
 
 .project-link:hover {
@@ -906,6 +917,7 @@ section {
 .project-content {
     padding: 1.5rem;
     display: block;
+    overflow: hidden;
 }
 
 .project-content h3 {
@@ -924,6 +936,7 @@ section {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .tech-tag {
@@ -933,12 +946,14 @@ section {
     border-radius: 1rem;
     font-size: 0.8rem;
     font-weight: 500;
+    overflow: hidden;
 }
 
 /* ===== RESUME SECTION ===== */
 .resume {
     padding: 5rem 0;
     background: var(--bg-secondary);
+    overflow: hidden;
 }
 
 .resume-tabs {
@@ -947,6 +962,7 @@ section {
     gap: 1rem;
     margin-bottom: 3rem;
     flex-wrap: wrap;
+    overflow: hidden;
 }
 
 .tab-btn {
@@ -958,6 +974,7 @@ section {
     cursor: pointer;
     transition: all 0.3s ease;
     font-weight: 500;
+    overflow: hidden;
 }
 
 .tab-btn.active,
@@ -968,6 +985,7 @@ section {
 
 .tab-content {
     position: relative;
+    overflow: hidden;
 }
 
 .tab-pane {
@@ -983,6 +1001,7 @@ section {
     position: relative;
     max-width: 800px;
     margin: 0 auto;
+    overflow: hidden;
 }
 
 .timeline::before {
@@ -1109,12 +1128,14 @@ section {
 .resume-download {
     text-align: center;
     margin-top: 3rem;
+    overflow: hidden;
 }
 
 /* ===== CONTACT SECTION ===== */
 .contact {
     padding: 5rem 0;
     background: var(--bg-primary);
+    overflow: hidden;
 }
 
 /* Mobile contact adjustments */
@@ -1140,12 +1161,14 @@ section {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 4rem;
+    overflow: hidden;
 }
 
 .contact-info {
     display: flex;
     flex-direction: column;
     gap: 2rem;
+    overflow: hidden;
 }
 
 .contact-item {
@@ -1157,6 +1180,7 @@ section {
     border-radius: 1rem;
     box-shadow: var(--shadow-light);
     transition: transform 0.3s ease;
+    overflow: hidden;
 }
 
 .contact-item:hover {
@@ -1189,6 +1213,7 @@ section {
     display: flex;
     gap: 1rem;
     margin-top: 1rem;
+    overflow: hidden;
 }
 
 .social-link {
@@ -1202,6 +1227,7 @@ section {
     align-items: center;
     font-size: 1.2rem;
     transition: all 0.3s ease;
+    overflow: hidden;
 }
 
 .social-link:hover {
@@ -1215,11 +1241,13 @@ section {
     padding: 2rem;
     border-radius: 1rem;
     box-shadow: var(--shadow-light);
+    overflow: hidden;
 }
 
 .form-group {
     position: relative;
     margin-bottom: 2rem;
+    overflow: hidden;
 }
 
 .form-group input,
@@ -1772,4 +1800,12 @@ section {
         padding: 0.5rem;
         max-width: 100%;
     }
+}
+
+.projects-content {
+    overflow: hidden;
+}
+
+.resume-content {
+    overflow: hidden;
 }

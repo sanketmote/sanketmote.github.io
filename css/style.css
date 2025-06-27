@@ -38,7 +38,7 @@
 /* ===== RESET & BASE STYLES ===== */
 * {
     margin: 0;
-    padding: 0;
+    /* padding: 0; */
     box-sizing: border-box;
 }
 
@@ -1346,7 +1346,7 @@ section {
 }
 
 .experience-content {
-    max-width: 800px;
+    max-width: 1400px;
     margin: 0 auto;
 }
 
@@ -1425,7 +1425,7 @@ section {
 /* Timeline Styles (used by Education and Experience sections) */
 .timeline {
     position: relative;
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     overflow: hidden;
 }

@@ -6,15 +6,23 @@
     transition-property: opacity, transform;
     transition-duration: 1s;
     transition-timing-function: ease-in-out;
+    --aos-delay: 0ms;
+    transition-delay: var(--aos-delay);
 }
 
 [data-aos].aos-animate {
     opacity: 1;
 }
 
+/* Scroll speed adjusted animations */
+[data-aos].scroll-adjusted {
+    transition-delay: var(--aos-delay) !important;
+}
+
 /* Fade animations */
 [data-aos="fade-up"] {
     transform: translateY(50px);
+    transition-delay: var(--aos-delay);
 }
 
 [data-aos="fade-up"].aos-animate {
@@ -23,6 +31,7 @@
 
 [data-aos="fade-down"] {
     transform: translateY(-50px);
+    transition-delay: var(--aos-delay);
 }
 
 [data-aos="fade-down"].aos-animate {
@@ -31,6 +40,7 @@
 
 [data-aos="fade-left"] {
     transform: translateX(-50px);
+    transition-delay: var(--aos-delay);
 }
 
 [data-aos="fade-left"].aos-animate {
@@ -39,6 +49,7 @@
 
 [data-aos="fade-right"] {
     transform: translateX(50px);
+    transition-delay: var(--aos-delay);
 }
 
 [data-aos="fade-right"].aos-animate {
@@ -48,6 +59,7 @@
 /* Zoom animations */
 [data-aos="zoom-in"] {
     transform: scale(0.8);
+    transition-delay: var(--aos-delay);
 }
 
 [data-aos="zoom-in"].aos-animate {
@@ -56,6 +68,7 @@
 
 [data-aos="zoom-out"] {
     transform: scale(1.2);
+    transition-delay: var(--aos-delay);
 }
 
 [data-aos="zoom-out"].aos-animate {
@@ -2099,4 +2112,27 @@
         transform: scale(1.5);
         opacity: 0;
     }
+}
+
+/* Smooth transitions for delay changes */
+[data-aos] {
+    transition: all 0.3s ease, opacity 0.6s ease, transform 0.6s ease;
+    transition-delay: var(--aos-delay);
+}
+
+/* Performance optimizations for fast scrolling */
+@media (prefers-reduced-motion: reduce) {
+    [data-aos] {
+        transition-delay: 0ms !important;
+        --aos-delay: 0ms !important;
+    }
+}
+
+/* High scroll speed optimizations */
+.scroll-fast [data-aos] {
+    transition-delay: calc(var(--aos-delay) * 0.3);
+}
+
+.scroll-very-fast [data-aos] {
+    transition-delay: calc(var(--aos-delay) * 0.1);
 } 

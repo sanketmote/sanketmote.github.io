@@ -157,6 +157,7 @@
         grid-template-columns: 1fr;
         text-align: center;
         gap: 2rem;
+        padding-top: 2rem;
     }
     
     .about-stats {
@@ -385,7 +386,7 @@
     
     /* Hero Section */
     .hero {
-        padding: 3rem 0 2rem;
+        padding: 5rem 0 2rem;
         max-width: 100%;
         width: 100%;
         overflow-x: hidden;

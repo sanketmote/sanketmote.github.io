@@ -32,16 +32,74 @@ document.addEventListener('DOMContentLoaded', function() {
         initTypingAnimation();
         initSkillBars();
         initTimelineAnimation();
+        initContactForm();
         initLoadingScreen();
         initResumeTabs();
         
         // Add scroll-triggered animations
         initScrollAnimations();
         
+        // Initialize all new advanced animations
+        if (typeof initAllAnimations === 'function') {
+            initAllAnimations();
+        }
+        
+        // Add animation classes to elements
+        addAnimationClasses();
+        
     } catch (error) {
         console.error('Error initializing components:', error);
     }
 });
+
+// ===== ADD ANIMATION CLASSES TO ELEMENTS =====
+function addAnimationClasses() {
+    // Add 3D tilt effect to cards
+    const cards = document.querySelectorAll('.skill-card, .project-card, .certification-card');
+    cards.forEach(card => {
+        card.classList.add('tilt-card', 'glow-on-hover');
+    });
+    
+    // Add magnetic effect to buttons
+    const buttons = document.querySelectorAll('.btn');
+    buttons.forEach(button => {
+        button.classList.add('magnetic', 'ripple');
+    });
+    
+    // Add floating effect to elements
+    const floatingElements = document.querySelectorAll('.hero-image, .about-image');
+    floatingElements.forEach(element => {
+        element.classList.add('float-element');
+    });
+    
+    // Add morphing shapes to background
+    addMorphingShapes();
+    
+    // Add enhanced loading animation
+    const loader = document.querySelector('.loader');
+    if (loader) {
+        loader.classList.add('advanced-loader');
+    }
+}
+
+// ===== ADD MORPHING SHAPES =====
+function addMorphingShapes() {
+    const heroSection = document.querySelector('.hero');
+    if (heroSection) {
+        // Create morphing shapes
+        for (let i = 0; i < 3; i++) {
+            const shape = document.createElement('div');
+            shape.className = 'morphing-shape';
+            shape.style.position = 'absolute';
+            shape.style.top = Math.random() * 100 + '%';
+            shape.style.left = Math.random() * 100 + '%';
+            shape.style.opacity = '0.1';
+            shape.style.zIndex = '1';
+            shape.style.pointerEvents = 'none';
+            heroSection.appendChild(shape);
+        }
+    }
+}
 
 // ===== NAVIGATION =====
 function initNavigation() {
@@ -64,6 +122,7 @@ function initNavigation() {
     // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
+            // Don't prevent default here as smooth scrolling will handle it
             navToggle.classList.remove('active');
             navMenu.classList.remove('active');
             document.body.classList.remove('nav-open');
@@ -363,6 +422,34 @@ function initTimelineAnimation() {
     });
 }
 
+// ===== CONTACT FORM =====
+function initContactForm() {
+    const form = document.querySelector('.contact-form form');
+    if (!form) return;
+    
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate all fields
+        const inputs = form.querySelectorAll('input, textarea');
+        let isValid = true;
+        
+        inputs.forEach(input => {
+            if (!validateField(input)) {
+                isValid = false;
+            }
+        });
+        
+        if (isValid) {
+            // Show success message
+            showNotification('Message sent successfully!', 'success');
+            form.reset();
+        } else {
+            showNotification('Please fix the errors above.', 'error');
+        }
+    });
+}
+
 // ===== SEND EMAIL FUNCTION =====
 function sendEmail(event) {
     event.preventDefault();
@@ -525,4 +612,56 @@ function showNotification(message, type = 'info') {
             }
         }, 300);
     }, 3000);
+}
+
+// ===== UTILITY FUNCTIONS =====
+function throttle(func, limit) {
+    let inThrottle;
+    return function() {
+        const args = arguments;
+        const context = this;
+        if (!inThrottle) {
+            func.apply(context, args);
+            inThrottle = true;
+            setTimeout(() => inThrottle = false, limit);
+        }
+    };
+}
+
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// ===== ACCESSIBILITY =====
+function trapFocus(element) {
+    const focusableElements = element.querySelectorAll(
+        'a[href], button, textarea, input[type="text"], input[type="radio"], input[type="checkbox"], select'
+    );
+    
+    const firstFocusableElement = focusableElements[0];
+    const lastFocusableElement = focusableElements[focusableElements.length - 1];
+    
+    element.addEventListener('keydown', function(e) {
+        if (e.key === 'Tab') {
+            if (e.shiftKey) {
+                if (document.activeElement === firstFocusableElement) {
+                    lastFocusableElement.focus();
+                    e.preventDefault();
+                }
+            } else {
+                if (document.activeElement === lastFocusableElement) {
+                    firstFocusableElement.focus();
+                    e.preventDefault();
+                }
+            }
+        }
+    });
 } 

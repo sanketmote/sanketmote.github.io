@@ -45,6 +45,7 @@
 html {
     scroll-behavior: smooth;
     font-size: 16px;
+    overflow-x: hidden;
 }
 
 body {
@@ -54,6 +55,8 @@ body {
     background-color: var(--bg-primary);
     transition: background-color 0.3s ease, color 0.3s ease;
     overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
 }
 
 /* ===== TYPOGRAPHY ===== */
@@ -91,6 +94,37 @@ a:hover {
     max-width: 1500px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+/* Mobile container adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 0 1rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .container {
+        padding: 0 0.5rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    .container {
+        padding: 0 0.25rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 320px) {
+    .container {
+        padding: 0 0.125rem;
+        max-width: 100%;
+    }
 }
 
 /* ===== BUTTONS ===== */
@@ -214,6 +248,7 @@ a:hover {
     border-bottom: 1px solid var(--border-color);
     z-index: 1000;
     transition: all 0.3s ease;
+    padding: 1rem 0;
 }
 
 [data-theme="dark"] .navbar {
@@ -227,6 +262,8 @@ a:hover {
     padding: 1rem 2rem;
     max-width: 1200px;
     margin: 0 auto;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .nav-logo a {
@@ -297,7 +334,7 @@ a:hover {
     align-items: center;
     position: relative;
     overflow: hidden;
-    background: var(--gradient-primary);
+    padding: 6rem 0;
 }
 
 .hero-background {
@@ -328,6 +365,8 @@ a:hover {
     max-width: 1500px;
     margin: 0 auto;
     padding: 0 2rem;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .hero-text {
@@ -440,9 +479,41 @@ section {
     padding: 5rem 0;
 }
 
+/* Mobile section adjustments */
+@media (max-width: 768px) {
+    section {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    section {
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 375px) {
+    section {
+        padding: 1.5rem 0;
+    }
+}
+
 .section-header {
     text-align: center;
     margin-bottom: 4rem;
+}
+
+/* Mobile section header adjustments */
+@media (max-width: 768px) {
+    .section-header {
+        margin-bottom: 2.5rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .section-header {
+        margin-bottom: 2rem;
+    }
 }
 
 .section-title {
@@ -509,6 +580,9 @@ section {
     grid-template-columns: repeat(3, 1fr);
     gap: 2rem;
     margin: 2rem 0;
+    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .stat-item {
@@ -547,19 +621,52 @@ section {
 .skills {
     padding: 5rem 0;
     background: var(--bg-secondary);
-    display: block;
+}
+
+/* Mobile skills adjustments */
+@media (max-width: 768px) {
+    .skills {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .skills {
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .skills {
+        padding: 1.5rem 0;
+    }
 }
 
 .skills-content {
-    width: 100%;
+    max-width: 1200px;
 }
 
 .skills-categories {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    flex-wrap: wrap;
     margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+/* Mobile skills categories adjustments */
+@media (max-width: 768px) {
+    .skills-categories {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .skills-categories {
+        gap: 0.25rem;
+        margin-bottom: 1.5rem;
+    }
 }
 
 .category-btn {
@@ -586,6 +693,9 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
     justify-items: center;
+    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .skill-card {
@@ -653,21 +763,57 @@ section {
 .projects {
     padding: 5rem 0;
     background: var(--bg-primary);
-    display: block;
+}
+
+/* Mobile projects adjustments */
+@media (max-width: 768px) {
+    .projects {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .projects {
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .projects {
+        padding: 1.5rem 0;
+    }
 }
 
 .projects-categories {
     display: flex;
     justify-content: center;
     gap: 1rem;
-    flex-wrap: wrap;
     margin-bottom: 3rem;
+    flex-wrap: wrap;
+}
+
+/* Mobile projects categories adjustments */
+@media (max-width: 768px) {
+    .projects-categories {
+        gap: 0.5rem;
+        margin-bottom: 2rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .projects-categories {
+        gap: 0.25rem;
+        margin-bottom: 1.5rem;
+    }
 }
 
 .projects-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
     gap: 2rem;
+    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .project-card {
@@ -905,6 +1051,9 @@ section {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 2rem;
     margin-top: 2rem;
+    max-width: 100%;
+    width: 100%;
+    overflow-x: hidden;
 }
 
 .certification-card {
@@ -956,6 +1105,25 @@ section {
 .contact {
     padding: 5rem 0;
     background: var(--bg-primary);
+}
+
+/* Mobile contact adjustments */
+@media (max-width: 768px) {
+    .contact {
+        padding: 3rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .contact {
+        padding: 2rem 0;
+    }
+}
+
+@media (max-width: 375px) {
+    .contact {
+        padding: 1.5rem 0;
+    }
 }
 
 .contact-content {
@@ -1098,6 +1266,25 @@ section {
     position: relative;
 }
 
+/* Mobile footer adjustments */
+@media (max-width: 768px) {
+    .footer {
+        padding: 2rem 0 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .footer {
+        padding: 1.5rem 0 1rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .footer {
+        padding: 1rem 0 0.5rem;
+    }
+}
+
 .footer-content {
     display: flex;
     justify-content: space-between;
@@ -1147,6 +1334,37 @@ section {
     box-shadow: var(--shadow-heavy);
 }
 
+/* Mobile back-to-top adjustments */
+@media (max-width: 768px) {
+    .back-to-top {
+        bottom: 1rem;
+        right: 1rem;
+        width: 45px;
+        height: 45px;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .back-to-top {
+        bottom: 0.75rem;
+        right: 0.75rem;
+        width: 40px;
+        height: 40px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .back-to-top {
+        bottom: 0.5rem;
+        right: 0.5rem;
+        width: 35px;
+        height: 35px;
+        font-size: 0.8rem;
+    }
+}
+
 /* ===== UTILITY CLASSES ===== */
 .text-center { text-align: center; }
 .text-left { text-align: left; }
@@ -1193,4 +1411,349 @@ section {
     background: var(--gradient-primary);
     z-index: 9999;
     transition: width 0.1s ease;
+}
+
+/* Mobile hero adjustments */
+@media (max-width: 768px) {
+    .hero {
+        padding: 4rem 0 3rem;
+        min-height: auto;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        padding: 3rem 0 2rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .hero {
+        padding: 2rem 0 1.5rem;
+    }
+}
+
+/* Mobile navigation adjustments */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.75rem 0;
+    }
+}
+
+@media (max-width: 576px) {
+    .navbar {
+        padding: 0.5rem 0;
+    }
+}
+
+/* ===== MOBILE-SPECIFIC IMPROVEMENTS ===== */
+
+/* Better touch targets for mobile */
+@media (max-width: 768px) {
+    .btn {
+        min-height: 44px; /* Minimum touch target size */
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .nav-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .category-btn,
+    .tab-btn {
+        min-height: 44px;
+        padding: 0.75rem 1.5rem;
+    }
+    
+    .social-link {
+        min-width: 44px;
+        min-height: 44px;
+    }
+    
+    .project-link {
+        min-height: 44px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/* Prevent horizontal scrolling on mobile */
+@media (max-width: 768px) {
+    body {
+        overflow-x: hidden;
+        width: 100%;
+        max-width: 100vw;
+    }
+    
+    html {
+        overflow-x: hidden;
+        width: 100%;
+    }
+    
+    .container {
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .hero-content,
+    .about-content,
+    .contact-content {
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .nav-container {
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .skills-grid,
+    .projects-grid,
+    .certifications-grid {
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .skills-categories,
+    .projects-categories,
+    .resume-tabs {
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+    
+    .timeline {
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .footer-content {
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+    }
+}
+
+/* Additional mobile overflow prevention */
+@media (max-width: 576px) {
+    * {
+        max-width: 100%;
+    }
+    
+    .hero-text,
+    .about-text,
+    .contact-info,
+    .contact-form {
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .skill-card,
+    .project-card,
+    .certification-card,
+    .contact-item {
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .timeline-content {
+        overflow-x: hidden;
+        max-width: 100%;
+        width: 100%;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
+    }
+}
+
+/* Better text readability on mobile */
+@media (max-width: 576px) {
+    p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .hero-description {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    .section-subtitle {
+        font-size: 0.95rem;
+    }
+}
+
+/* Improved spacing for mobile forms */
+@media (max-width: 576px) {
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        min-height: 44px;
+        font-size: 16px; /* Prevents zoom on iOS */
+    }
+    
+    .form-group textarea {
+        min-height: 100px;
+    }
+}
+
+/* Better mobile navigation */
+@media (max-width: 768px) {
+    .nav-menu {
+        padding: 2rem 1rem;
+    }
+    
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .nav-link {
+        width: 100%;
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin: 0.25rem 0;
+    }
+    
+    .nav-link:hover {
+        background: var(--bg-secondary);
+    }
+}
+
+/* Mobile-specific card improvements */
+@media (max-width: 576px) {
+    .skill-card,
+    .project-card,
+    .certification-card,
+    .contact-item {
+        margin: 0;
+        border-radius: 0.75rem;
+    }
+    
+    .skill-card:hover,
+    .project-card:hover,
+    .certification-card:hover,
+    .contact-item:hover {
+        transform: translateY(-2px);
+    }
+}
+
+/* Mobile timeline improvements */
+@media (max-width: 768px) {
+    .timeline-content {
+        padding: 1rem;
+        border-radius: 0.5rem;
+        margin-left: 1rem;
+    }
+    
+    .timeline-marker {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+/* Mobile button improvements */
+@media (max-width: 576px) {
+    .hero-buttons {
+        gap: 0.75rem;
+    }
+    
+    .btn {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    
+    .about-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+}
+
+/* Mobile image optimizations */
+@media (max-width: 768px) {
+    .about-img,
+    .profile-img {
+        border-radius: 50%;
+        object-fit: cover;
+    }
+    
+    .project-image img {
+        object-fit: cover;
+    }
+}
+
+/* Mobile scroll improvements */
+@media (max-width: 768px) {
+    html {
+        scroll-padding-top: 80px; /* Account for fixed navbar */
+    }
+    
+    .scroll-indicator {
+        bottom: 1rem;
+    }
+    
+    .scroll-arrow {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+/* Mobile hero content adjustments */
+@media (max-width: 768px) {
+    .hero-content {
+        padding: 0 1rem;
+        gap: 2rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content {
+        padding: 0 0.5rem;
+        gap: 1.5rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 375px) {
+    .hero-content {
+        padding: 0 0.25rem;
+        gap: 1rem;
+        max-width: 100%;
+    }
+}
+
+/* Mobile nav container adjustments */
+@media (max-width: 768px) {
+    .nav-container {
+        padding: 1rem;
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 576px) {
+    .nav-container {
+        padding: 0.5rem;
+        max-width: 100%;
+    }
 } 

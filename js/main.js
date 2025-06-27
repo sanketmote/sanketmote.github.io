@@ -388,6 +388,7 @@ function initSkillBars() {
 function initProjectFilter() {
     const categoryButtons = document.querySelectorAll('.category-btn');
     const projectCards = document.querySelectorAll('.project-card');
+    const projectsGrid = document.getElementById('projectsGrid');
     
     categoryButtons.forEach(button => {
         button.addEventListener('click', function() {
@@ -402,10 +403,21 @@ function initProjectFilter() {
                 const cardCategory = card.getAttribute('data-category');
                 
                 if (category === 'all' || cardCategory === category) {
+                    // Show project
                     card.style.display = 'block';
-                    card.style.animation = 'fadeInUp 0.5s ease-in-out';
+                    card.style.opacity = '1';
+                    card.style.transform = 'scale(1)';
+                    card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
                 } else {
-                    card.style.display = 'none';
+                    // Hide project
+                    card.style.opacity = '0';
+                    card.style.transform = 'scale(0.95)';
+                    card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                    
+                    // Hide after transition
+                    setTimeout(() => {
+                        card.style.display = 'none';
+                    }, 300);
                 }
             });
         });

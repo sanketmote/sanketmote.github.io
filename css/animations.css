@@ -342,11 +342,9 @@
 @keyframes fadeIn {
     from {
         opacity: 0;
-        transform: translateY(20px);
     }
     to {
         opacity: 1;
-        transform: translateY(0);
     }
 }
 
@@ -813,4 +811,33 @@
 .glow-text:hover {
     text-shadow: 0 0 15px rgba(102, 126, 234, 0.8);
     color: #667eea;
+}
+
+/* Project Filter Animation */
+.project-card {
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    /* Ensure consistent sizing */
+    flex: 1 1 300px;
+    max-width: 400px;
+    min-height: 300px;
+}
+
+/* Ensure project grid maintains layout */
+.projects-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    align-items: stretch;
+}
+
+/* Smooth filter transitions */
+.project-card {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.project-card[style*="display: none"] {
+    opacity: 0;
+    transform: scale(0.95);
 } 

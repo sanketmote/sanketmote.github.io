@@ -740,8 +740,33 @@
         display: none;
     }
     
+    /* Disable water cursor on mobile */
+    .water-cursor {
+        display: none;
+    }
+    
+    /* Disable water particles on mobile */
+    .water-particle {
+        display: none;
+    }
+    
     /* Disable particle trail on mobile */
     .particle-trail {
+        display: none;
+    }
+    
+    /* Disable fullscreen ripple on mobile */
+    .fullscreen-ripple {
+        display: none;
+    }
+    
+    /* Disable ripple rings on mobile */
+    .ripple-ring {
+        display: none;
+    }
+    
+    /* Disable cursor trail ripple on mobile */
+    .cursor-trail-ripple {
         display: none;
     }
 }
@@ -1554,5 +1579,325 @@
     
     .project-slide .project-link {
         justify-content: center;
+    }
+}
+
+/* Water Waves Fluid Cursor */
+.water-cursor {
+    position: fixed;
+    pointer-events: none;
+    z-index: 99999;
+}
+
+.water-cursor-dot {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    background: radial-gradient(circle, #4facfe 0%, #00f2fe 50%, #4facfe 100%);
+    border-radius: 50%;
+    box-shadow: 
+        0 0 20px rgba(79, 172, 254, 0.8),
+        0 0 40px rgba(0, 242, 254, 0.6),
+        inset 0 0 10px rgba(255, 255, 255, 0.3);
+    animation: water-pulse 2s ease-in-out infinite;
+    border: 2px solid rgba(255, 255, 255, 0.6);
+}
+
+.water-cursor-ring {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border: 3px solid rgba(79, 172, 254, 0.4);
+    border-radius: 50%;
+    animation: water-wave 3s ease-in-out infinite;
+}
+
+.water-cursor-ring::before {
+    content: '';
+    position: absolute;
+    top: -3px;
+    left: 50%;
+    width: 8px;
+    height: 8px;
+    background: #4facfe;
+    border-radius: 50%;
+    transform: translateX(-50%);
+    animation: water-ripple 2s ease-in-out infinite;
+    box-shadow: 0 0 15px rgba(79, 172, 254, 0.8);
+}
+
+.water-cursor-ripple {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: radial-gradient(circle, #4facfe, #00f2fe);
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: water-ripple-expand 1.5s ease-out forwards;
+    box-shadow: 0 0 10px rgba(79, 172, 254, 0.6);
+}
+
+.water-cursor-wave {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(79, 172, 254, 0.3);
+    border-radius: 50%;
+    animation: water-wave-expand 2s ease-out forwards;
+}
+
+.water-cursor.hover .water-cursor-dot {
+    transform: scale(1.8);
+    background: radial-gradient(circle, #00f2fe 0%, #4facfe 50%, #00f2fe 100%);
+    box-shadow: 
+        0 0 30px rgba(0, 242, 254, 0.9),
+        0 0 60px rgba(79, 172, 254, 0.7),
+        inset 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.water-cursor.hover .water-cursor-ring {
+    width: 80px;
+    height: 80px;
+    border-color: rgba(0, 242, 254, 0.5);
+    animation-duration: 1.5s;
+}
+
+.water-cursor.hover .water-cursor-ring::before {
+    background: #00f2fe;
+    animation-duration: 1s;
+}
+
+.water-cursor.click .water-cursor-dot {
+    transform: scale(0.7);
+    background: radial-gradient(circle, #ff6b6b 0%, #ee5a24 50%, #ff6b6b 100%);
+    box-shadow: 
+        0 0 40px rgba(255, 107, 107, 1),
+        0 0 80px rgba(238, 90, 36, 0.8),
+        inset 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.water-cursor.click .water-cursor-ring {
+    animation: water-splash 0.8s ease-out;
+}
+
+/* Water particle effects */
+.water-particle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: radial-gradient(circle, #4facfe, #00f2fe);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99998;
+    animation: water-particle-float 2s ease-out forwards;
+    box-shadow: 0 0 8px rgba(79, 172, 254, 0.6);
+}
+
+/* Full screen ripple effect */
+.fullscreen-ripple {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 99997;
+    background: radial-gradient(circle, transparent 0%, rgba(79, 172, 254, 0.1) 20%, transparent 100%);
+    animation: fullscreen-ripple-expand 1.5s ease-out forwards;
+    transform-origin: center;
+}
+
+.fullscreen-ripple.click {
+    background: radial-gradient(circle, transparent 0%, rgba(255, 107, 107, 0.15) 20%, transparent 100%);
+    animation: fullscreen-ripple-click 1.2s ease-out forwards;
+}
+
+/* Multiple ripple rings */
+.ripple-ring {
+    position: fixed;
+    border: 2px solid rgba(79, 172, 254, 0.3);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99996;
+    animation: ripple-ring-expand 2s ease-out forwards;
+}
+
+.ripple-ring.click {
+    border-color: rgba(255, 107, 107, 0.4);
+    animation: ripple-ring-click 1.5s ease-out forwards;
+}
+
+/* Cursor trail ripple */
+.cursor-trail-ripple {
+    position: fixed;
+    width: 8px;
+    height: 8px;
+    background: radial-gradient(circle, #4facfe, #00f2fe);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 99995;
+    animation: cursor-trail-ripple 1s ease-out forwards;
+    box-shadow: 0 0 15px rgba(79, 172, 254, 0.8);
+}
+
+@keyframes water-pulse {
+    0%, 100% {
+        box-shadow: 
+            0 0 20px rgba(79, 172, 254, 0.8),
+            0 0 40px rgba(0, 242, 254, 0.6),
+            inset 0 0 10px rgba(255, 255, 255, 0.3);
+        transform: scale(1);
+    }
+    50% {
+        box-shadow: 
+            0 0 30px rgba(79, 172, 254, 1),
+            0 0 60px rgba(0, 242, 254, 0.8),
+            inset 0 0 15px rgba(255, 255, 255, 0.4);
+        transform: scale(1.1);
+    }
+}
+
+@keyframes water-wave {
+    0%, 100% {
+        transform: scale(1) rotate(0deg);
+        border-color: rgba(79, 172, 254, 0.4);
+    }
+    25% {
+        transform: scale(1.1) rotate(90deg);
+        border-color: rgba(0, 242, 254, 0.5);
+    }
+    50% {
+        transform: scale(1.2) rotate(180deg);
+        border-color: rgba(79, 172, 254, 0.6);
+    }
+    75% {
+        transform: scale(1.1) rotate(270deg);
+        border-color: rgba(0, 242, 254, 0.5);
+    }
+}
+
+@keyframes water-ripple {
+    0%, 100% {
+        transform: translateX(-50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-50%) scale(1.5);
+        opacity: 0.7;
+    }
+}
+
+@keyframes water-ripple-expand {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+@keyframes water-wave-expand {
+    0% {
+        transform: scale(1);
+        opacity: 0.6;
+    }
+    100% {
+        transform: scale(4);
+        opacity: 0;
+    }
+}
+
+@keyframes water-splash {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes water-particle-float {
+    0% {
+        opacity: 1;
+        transform: scale(1) translateY(0) rotate(0deg);
+    }
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2) translateY(-10px) rotate(180deg);
+    }
+    100% {
+        opacity: 0;
+        transform: scale(0.5) translateY(-20px) rotate(360deg);
+    }
+}
+
+@keyframes fullscreen-ripple-expand {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+@keyframes fullscreen-ripple-click {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple-ring-expand {
+    0% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(3);
+        opacity: 0;
+    }
+}
+
+@keyframes ripple-ring-click {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.5);
+        opacity: 0.8;
+    }
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
+
+@keyframes cursor-trail-ripple {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
     }
 } 

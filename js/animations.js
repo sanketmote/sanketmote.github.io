@@ -758,6 +758,328 @@ function initEnhancedTooltips() {
     });
 }
 
+// ===== WATER WAVES FLUID CURSOR =====
+function initWaterWavesCursor() {
+    // Check if device supports touch (mobile/tablet)
+    if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
+        return; // Don't initialize on touch devices
+    }
+    
+    // Create cursor container
+    const cursor = document.createElement('div');
+    cursor.className = 'water-cursor';
+    document.body.appendChild(cursor);
+    
+    // Create cursor elements
+    const cursorDot = document.createElement('div');
+    cursorDot.className = 'water-cursor-dot';
+    cursor.appendChild(cursorDot);
+    
+    const cursorRing = document.createElement('div');
+    cursorRing.className = 'water-cursor-ring';
+    cursor.appendChild(cursorRing);
+    
+    // Mouse position tracking
+    let mouseX = 0;
+    let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
+    let ringX = 0;
+    let ringY = 0;
+    let lastMouseX = 0;
+    let lastMouseY = 0;
+    let mouseSpeed = 0;
+    
+    // Trail positions for water effects
+    const trailPositions = [];
+    const maxTrailLength = 10;
+    
+    // Hide default cursor
+    document.body.style.cursor = 'none';
+    
+    // Mouse move event
+    document.addEventListener('mousemove', (e) => {
+        // Calculate mouse speed
+        const deltaX = e.clientX - lastMouseX;
+        const deltaY = e.clientY - lastMouseY;
+        mouseSpeed = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+        
+        lastMouseX = mouseX;
+        lastMouseY = mouseY;
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+        
+        // Add to trail
+        trailPositions.push({ x: mouseX, y: mouseY, time: Date.now() });
+        if (trailPositions.length > maxTrailLength) {
+            trailPositions.shift();
+        }
+        
+        // Create water particles based on speed
+        if (mouseSpeed > 3 && Math.random() < 0.3) {
+            createWaterParticle(mouseX, mouseY);
+        }
+        
+        // Create water ripples occasionally
+        if (Math.random() < 0.1) {
+            createWaterRipple(mouseX, mouseY);
+        }
+        
+        // Create cursor trail ripples based on speed
+        if (mouseSpeed > 5 && Math.random() < 0.2) {
+            createCursorTrailRipple(mouseX, mouseY);
+        }
+    });
+    
+    // Mouse click event
+    document.addEventListener('mousedown', () => {
+        cursor.classList.add('click');
+        createWaterSplash(mouseX, mouseY);
+        createFullscreenRipple(mouseX, mouseY, true);
+        createMultipleRippleRings(mouseX, mouseY, true);
+    });
+    
+    document.addEventListener('mouseup', () => {
+        cursor.classList.remove('click');
+    });
+    
+    // Add hover effects to interactive elements
+    const interactiveElements = document.querySelectorAll('a, button, .btn, .card, .skill-card, .project-card, .nav-link, input, textarea');
+    
+    interactiveElements.forEach(element => {
+        element.addEventListener('mouseenter', () => {
+            cursor.classList.add('hover');
+        });
+        
+        element.addEventListener('mouseleave', () => {
+            cursor.classList.remove('hover');
+        });
+    });
+    
+    // Animation loop
+    function animateCursor() {
+        // Fluid cursor movement with water-like lag
+        const dotSpeed = 0.15;
+        const ringSpeed = 0.08;
+        
+        cursorX += (mouseX - cursorX) * dotSpeed;
+        cursorY += (mouseY - cursorY) * dotSpeed;
+        
+        ringX += (mouseX - ringX) * ringSpeed;
+        ringY += (mouseY - ringY) * ringSpeed;
+        
+        // Update cursor dot position
+        cursorDot.style.left = cursorX + 'px';
+        cursorDot.style.top = cursorY + 'px';
+        
+        // Update ring position
+        cursorRing.style.left = ringX + 'px';
+        cursorRing.style.top = ringY + 'px';
+        
+        // Create water waves based on movement
+        if (trailPositions.length > 3 && mouseSpeed > 2) {
+            createWaterWave();
+        }
+        
+        requestAnimationFrame(animateCursor);
+    }
+    
+    // Create water particle
+    function createWaterParticle(x, y) {
+        const particle = document.createElement('div');
+        particle.className = 'water-particle';
+        
+        // Random positioning around cursor
+        const spread = 10 + Math.random() * 20;
+        const angle = Math.random() * Math.PI * 2;
+        const offsetX = Math.cos(angle) * spread;
+        const offsetY = Math.sin(angle) * spread;
+        
+        particle.style.left = (x + offsetX) + 'px';
+        particle.style.top = (y + offsetY) + 'px';
+        
+        // Random size
+        const size = 3 + Math.random() * 4;
+        particle.style.width = size + 'px';
+        particle.style.height = size + 'px';
+        
+        document.body.appendChild(particle);
+        
+        // Remove particle after animation
+        setTimeout(() => {
+            if (particle.parentNode) {
+                particle.parentNode.removeChild(particle);
+            }
+        }, 2000);
+    }
+    
+    // Create water ripple
+    function createWaterRipple(x, y) {
+        const ripple = document.createElement('div');
+        ripple.className = 'water-cursor-ripple';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        document.body.appendChild(ripple);
+        
+        // Remove ripple after animation
+        setTimeout(() => {
+            if (ripple.parentNode) {
+                ripple.parentNode.removeChild(ripple);
+            }
+        }, 1500);
+    }
+    
+    // Create water wave
+    function createWaterWave() {
+        const trailIndex = Math.floor(Math.random() * (trailPositions.length - 1));
+        const pos = trailPositions[trailIndex];
+        
+        if (pos && Math.random() < 0.2) {
+            const wave = document.createElement('div');
+            wave.className = 'water-cursor-wave';
+            wave.style.left = pos.x + 'px';
+            wave.style.top = pos.y + 'px';
+            document.body.appendChild(wave);
+            
+            // Remove wave after animation
+            setTimeout(() => {
+                if (wave.parentNode) {
+                    wave.parentNode.removeChild(wave);
+                }
+            }, 2000);
+        }
+    }
+    
+    // Create water splash on click
+    function createWaterSplash(x, y) {
+        const splashCount = 8 + Math.floor(Math.random() * 4);
+        
+        for (let i = 0; i < splashCount; i++) {
+            const splash = document.createElement('div');
+            splash.className = 'water-cursor-ripple';
+            
+            // Explosion effect
+            const angle = (i / splashCount) * Math.PI * 2 + Math.random() * 0.5;
+            const velocity = 25 + Math.random() * 35;
+            const offsetX = Math.cos(angle) * velocity;
+            const offsetY = Math.sin(angle) * velocity;
+            
+            splash.style.left = (x + offsetX) + 'px';
+            splash.style.top = (y + offsetY) + 'px';
+            
+            // Random size for splash effect
+            const size = 4 + Math.random() * 6;
+            splash.style.width = size + 'px';
+            splash.style.height = size + 'px';
+            
+            // Splash colors
+            splash.style.background = 'radial-gradient(circle, #ff6b6b, #ee5a24)';
+            splash.style.boxShadow = '0 0 15px rgba(255, 107, 107, 0.8)';
+            
+            document.body.appendChild(splash);
+            
+            // Remove splash after animation
+            setTimeout(() => {
+                if (splash.parentNode) {
+                    splash.parentNode.removeChild(splash);
+                }
+            }, 1500);
+        }
+    }
+    
+    // Create fullscreen ripple effect
+    function createFullscreenRipple(x, y, isClick = false) {
+        const ripple = document.createElement('div');
+        ripple.className = isClick ? 'fullscreen-ripple click' : 'fullscreen-ripple';
+        
+        // Position the ripple origin at click point
+        const centerX = (x / window.innerWidth) * 100;
+        const centerY = (y / window.innerHeight) * 100;
+        ripple.style.background = isClick 
+            ? `radial-gradient(circle at ${centerX}% ${centerY}%, transparent 0%, rgba(255, 107, 107, 0.15) 20%, transparent 100%)`
+            : `radial-gradient(circle at ${centerX}% ${centerY}%, transparent 0%, rgba(79, 172, 254, 0.1) 20%, transparent 100%)`;
+        
+        document.body.appendChild(ripple);
+        
+        // Remove ripple after animation
+        setTimeout(() => {
+            if (ripple.parentNode) {
+                ripple.parentNode.removeChild(ripple);
+            }
+        }, isClick ? 1200 : 1500);
+    }
+    
+    // Create multiple ripple rings
+    function createMultipleRippleRings(x, y, isClick = false) {
+        const ringCount = isClick ? 5 : 3;
+        
+        for (let i = 0; i < ringCount; i++) {
+            const ring = document.createElement('div');
+            ring.className = isClick ? 'ripple-ring click' : 'ripple-ring';
+            
+            // Position rings at click point
+            ring.style.left = (x - 50) + 'px';
+            ring.style.top = (y - 50) + 'px';
+            ring.style.width = '100px';
+            ring.style.height = '100px';
+            
+            // Stagger animation delays
+            ring.style.animationDelay = (i * 0.1) + 's';
+            
+            document.body.appendChild(ring);
+            
+            // Remove ring after animation
+            setTimeout(() => {
+                if (ring.parentNode) {
+                    ring.parentNode.removeChild(ring);
+                }
+            }, 2000 + (i * 100));
+        }
+    }
+    
+    // Create cursor trail ripple
+    function createCursorTrailRipple(x, y) {
+        const ripple = document.createElement('div');
+        ripple.className = 'cursor-trail-ripple';
+        ripple.style.left = (x - 4) + 'px';
+        ripple.style.top = (y - 4) + 'px';
+        
+        // Random size variation
+        const size = 6 + Math.random() * 6;
+        ripple.style.width = size + 'px';
+        ripple.style.height = size + 'px';
+        
+        // Color variation
+        const colors = [
+            'radial-gradient(circle, #4facfe, #00f2fe)',
+            'radial-gradient(circle, #00f2fe, #4facfe)',
+            'radial-gradient(circle, #4facfe, #0099cc)'
+        ];
+        ripple.style.background = colors[Math.floor(Math.random() * colors.length)];
+        
+        document.body.appendChild(ripple);
+        
+        // Remove ripple after animation
+        setTimeout(() => {
+            if (ripple.parentNode) {
+                ripple.parentNode.removeChild(ripple);
+            }
+        }, 1000);
+    }
+    
+    // Start animation
+    animateCursor();
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+        // Reset cursor position on resize
+        cursorX = mouseX;
+        cursorY = mouseY;
+        ringX = mouseX;
+        ringY = mouseY;
+    });
+}
+
 // ===== INITIALIZE ALL ANIMATIONS =====
 function initAllAnimations() {
     // Initialize all animation functions
@@ -777,6 +1099,9 @@ function initAllAnimations() {
     initEnhancedProgressBars();
     initEnhancedModals();
     initEnhancedTooltips();
+    
+    // Initialize water waves cursor
+    initWaterWavesCursor();
     
     // Initialize existing functions
     initParallax();

@@ -1012,7 +1012,7 @@ section {
 /* ===== EDUCATION SECTION ===== */
 .education {
     padding: 5rem 0;
-    background: var(--bg-secondary);
+    background: var(--bg-primary);
     overflow: hidden;
 }
 
@@ -1341,7 +1341,7 @@ section {
 /* ===== EXPERIENCE SECTION ===== */
 .experience {
     padding: 5rem 0;
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
     overflow: hidden;
 }
 

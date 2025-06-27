@@ -1422,6 +1422,73 @@ section {
     overflow: hidden;
 }
 
+.view-all-certifications {
+    text-align: center;
+    margin-top: 3rem;
+    overflow: hidden;
+}
+
+.view-all-certifications .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background: transparent;
+    color: var(--primary-color);
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.view-all-certifications .btn:hover {
+    background: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Certifications Header Page Styles */
+.certifications-header {
+    padding: 8rem 0 4rem;
+    background: var(--bg-secondary);
+    text-align: center;
+}
+
+.all-certifications {
+    padding: 4rem 0;
+    background: var(--bg-primary);
+}
+
+.back-to-portfolio {
+    text-align: center;
+    margin-top: 3rem;
+    overflow: hidden;
+}
+
+.back-to-portfolio .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.back-to-portfolio .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+    color: white;
+}
+
 /* Timeline Styles (used by Education and Experience sections) */
 .timeline {
     position: relative;

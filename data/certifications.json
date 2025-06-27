@@ -17,6 +17,18 @@
       "subtitle": "Ranked 26th",
       "description": "Achieved 26th rank in the PCSB Sudo Code Programming Contest, showcasing competitive programming abilities and problem-solving skills.",
       "icon": "fas fa-code"
+    },
+    {
+      "title": "UnScript Hackathon",
+      "subtitle": "Finalist",
+      "description": "Finalist in UnScript Hackathon organised by Fr. CRCE, demonstrating innovative problem-solving and technical skills.",
+      "icon": "fas fa-laptop-code"
+    },
+    {
+      "title": "HackerRank Skill Certifications",
+      "subtitle": "Problem Solving, SQL, Node, Python",
+      "description": "Earned multiple HackerRank skill certifications in Problem Solving, SQL, Node.js, and Python, showcasing comprehensive programming expertise.",
+      "icon": "fab fa-hackerrank"
     }
   ]
 } 

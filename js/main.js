@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Set dark mode as default
         document.body.setAttribute('data-theme', 'dark');
         
-        // Initialize AOS (Animate On Scroll)
+        // Initialize AOS (Animate On Scroll) with error handling
         if (typeof AOS !== 'undefined') {
             console.log('AOS library loaded successfully');
             AOS.init({
@@ -15,7 +15,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 once: true,
                 mirror: false,
                 offset: 100,
-                delay: 0
+                delay: 0,
+                disable: 'mobile' // Disable on mobile to prevent performance issues
             });
             console.log('AOS initialized with configuration');
         } else {
@@ -30,7 +31,6 @@ document.addEventListener('DOMContentLoaded', function() {
         initBackToTop();
         initTypingAnimation();
         initSkillBars();
-        initProjectFilter();
         initTimelineAnimation();
         initContactForm();
         initLoadingScreen();
@@ -107,8 +107,13 @@ function initNavigation() {
     const navMenu = document.querySelector('.nav-menu');
     const navLinks = document.querySelectorAll('.nav-link');
     
+    if (!navToggle || !navMenu) return;
+    
     // Mobile menu toggle
-    navToggle.addEventListener('click', function() {
+    navToggle.addEventListener('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        
         navToggle.classList.toggle('active');
         navMenu.classList.toggle('active');
         document.body.classList.toggle('nav-open');
@@ -116,12 +121,21 @@ function initNavigation() {
     
     // Close mobile menu when clicking on a link
     navLinks.forEach(link => {
-        link.addEventListener('click', function() {
+        link.addEventListener('click', function(e) {
+            // Don't prevent default here as smooth scrolling will handle it
             navToggle.classList.remove('active');
             navMenu.classList.remove('active');
             document.body.classList.remove('nav-open');
         });
-
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(e) {
+        if (!navToggle.contains(e.target) && !navMenu.contains(e.target)) {
+            navToggle.classList.remove('active');
+            navMenu.classList.remove('active');
+            document.body.classList.remove('nav-open');
+        }
     });
     
     // Update active nav link on scroll
@@ -155,17 +169,24 @@ function initSmoothScrolling() {
     
     links.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            
             const targetId = this.getAttribute('href');
+            
+            // Skip if it's just a hash without an ID
+            if (targetId === '#') return;
+            
             const targetSection = document.querySelector(targetId);
             
             if (targetSection) {
+                e.preventDefault();
+                
                 const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
                 
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
+                // Use requestAnimationFrame for smoother scrolling
+                window.requestAnimationFrame(() => {
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
                 });
             }
         });
@@ -384,46 +405,6 @@ function initSkillBars() {
     });
 }
 
-// ===== PROJECT FILTER =====
-function initProjectFilter() {
-    const categoryButtons = document.querySelectorAll('.category-btn');
-    const projectCards = document.querySelectorAll('.project-card');
-    const projectsGrid = document.getElementById('projectsGrid');
-    
-    categoryButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const category = this.getAttribute('data-category');
-            
-            // Update active button
-            categoryButtons.forEach(btn => btn.classList.remove('active'));
-            this.classList.add('active');
-            
-            // Filter projects
-            projectCards.forEach(card => {
-                const cardCategory = card.getAttribute('data-category');
-                
-                if (category === 'all' || cardCategory === category) {
-                    // Show project
-                    card.style.display = 'block';
-                    card.style.opacity = '1';
-                    card.style.transform = 'scale(1)';
-                    card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                } else {
-                    // Hide project
-                    card.style.opacity = '0';
-                    card.style.transform = 'scale(0.95)';
-                    card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
-                    
-                    // Hide after transition
-                    setTimeout(() => {
-                        card.style.display = 'none';
-                    }, 300);
-                }
-            });
-        });
-    });
-}
-
 // ===== TIMELINE ANIMATION =====
 function initTimelineAnimation() {
     const timelineItems = document.querySelectorAll('.timeline-item');
@@ -474,14 +455,30 @@ function initLoadingScreen() {
     const loadingScreen = document.getElementById('loadingScreen');
     if (!loadingScreen) return;
     
+    // Hide loading screen when page is fully loaded
     window.addEventListener('load', () => {
+        console.log('Page fully loaded, hiding loading screen');
+        loadingScreen.style.opacity = '0';
+        loadingScreen.style.transition = 'opacity 0.5s ease';
+        
         setTimeout(() => {
+            loadingScreen.style.display = 'none';
+            console.log('Loading screen hidden');
+        }, 500);
+    });
+    
+    // Fallback: Hide loading screen after 3 seconds even if load event doesn't fire
+    setTimeout(() => {
+        if (loadingScreen.style.display !== 'none') {
+            console.log('Fallback: Hiding loading screen after timeout');
             loadingScreen.style.opacity = '0';
+            loadingScreen.style.transition = 'opacity 0.5s ease';
+            
             setTimeout(() => {
                 loadingScreen.style.display = 'none';
             }, 500);
-        }, 1000);
-    });
+        }
+    }, 3000);
 }
 
 // ===== SCROLL ANIMATIONS =====

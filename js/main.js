@@ -2,6 +2,8 @@
 
 // DOM Content Loaded
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('Main.js loaded');
+    
     try {
         // Set dark mode as default
         document.body.setAttribute('data-theme', 'dark');
@@ -24,6 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         
         // Initialize all components
+        initLoadingScreen();
         initNavigation();
         initSmoothScrolling();
         initFormValidation();
@@ -33,11 +36,11 @@ document.addEventListener('DOMContentLoaded', function() {
         initSkillBars();
         initTimelineAnimation();
         initContactForm();
-        initLoadingScreen();
-        initResumeTabs();
-        
-        // Add scroll-triggered animations
         initScrollAnimations();
+        
+        // Add custom animations
+        addAnimationClasses();
+        addMorphingShapes();
         
         // Initialize all new advanced animations
         if (typeof initAllAnimations === 'function') {
@@ -47,6 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Add animation classes to elements
         addAnimationClasses();
         
+        console.log('All components initialized');
     } catch (error) {
         console.error('Error initializing components:', error);
     }
@@ -189,26 +193,6 @@ function initSmoothScrolling() {
                     });
                 });
             }
-        });
-    });
-}
-
-// ===== RESUME TABS =====
-function initResumeTabs() {
-    const tabButtons = document.querySelectorAll('.tab-btn');
-    const tabPanes = document.querySelectorAll('.tab-pane');
-    
-    tabButtons.forEach(button => {
-        button.addEventListener('click', function() {
-            const targetTab = this.getAttribute('data-tab');
-            
-            // Remove active class from all buttons and panes
-            tabButtons.forEach(btn => btn.classList.remove('active'));
-            tabPanes.forEach(pane => pane.classList.remove('active'));
-            
-            // Add active class to clicked button and corresponding pane
-            this.classList.add('active');
-            document.getElementById(targetTab).classList.add('active');
         });
     });
 }

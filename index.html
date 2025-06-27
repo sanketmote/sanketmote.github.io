@@ -69,7 +69,13 @@
                     <a href="#projects" class="nav-link">Projects</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#resume" class="nav-link">Resume</a>
+                    <a href="#education" class="nav-link">Education</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#experience" class="nav-link">Experience</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#certifications" class="nav-link">Certifications</a>
                 </li>
                 <li class="nav-item">
                     <a href="#contact" class="nav-link">Contact</a>
@@ -232,114 +238,121 @@
         </div>
     </section>
 
-    <!-- Resume Section -->
-    <section id="resume" class="resume">
+    <!-- Education Section -->
+    <section id="education" class="education">
         <div class="container">
             <div class="section-header" data-aos="fade-up">
-                <h2 class="section-title">Resume</h2>
-                <p class="section-subtitle">My education and experience</p>
+                <h2 class="section-title">Education</h2>
+                <p class="section-subtitle">My academic background</p>
             </div>
             
-            <div class="resume-content">
-                <div class="resume-tabs" data-aos="fade-up" data-aos-delay="200">
-                    <button class="tab-btn active" data-tab="education">Education</button>
-                    <button class="tab-btn" data-tab="experience">Experience</button>
-                    <button class="tab-btn" data-tab="certifications">Certifications</button>
+            <div class="education-content">
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-left">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Bachelor of Technology in Computer Science</h3>
+                            <h4>Walchand College of Engineering</h4>
+                            <p class="timeline-date">July 2019 — June 2023</p>
+                            <p>Coursework: Algorithms and Data Structures, Operating System, Database Management Systems, Computer Networks</p>
+                        </div>
+                    </div>
                 </div>
-                
-                <div class="tab-content">
-                    <!-- Education Tab -->
-                    <div class="tab-pane active" id="education">
-                        <div class="timeline">
-                            <div class="timeline-item" data-aos="fade-left">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content">
-                                    <h3>Bachelor of Technology in Computer Science</h3>
-                                    <h4>Walchand College of Engineering</h4>
-                                    <p class="timeline-date">July 2019 — June 2023</p>
-                                    <p>Coursework: Algorithms and Data Structures, Operating System, Database Management Systems, Computer Networks</p>
-                                </div>
-                            </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="experience">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Experience</h2>
+                <p class="section-subtitle">My professional journey</p>
+            </div>
+            
+            <div class="experience-content">
+                <div class="timeline">
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Staff Software Engineer</h3>
+                            <h4>Druva, Pune</h4>
+                            <p class="timeline-date">July 2023 — Present</p>
+                            <ul>
+                                <li>Reduced Lambda execution time by 50% by implementing JWT caching, resolving timeout issues, and improving the DB connection pooling in golang.</li>
+                                <li>Designed and developed new Python APIs, Dockerized the build pipeline, and integrated OpenTelemetry with SNS and SQS for better tracing and error monitoring.</li>
+                                <li>Enhanced UDA encryption and integrated ransomware metadata and analysis based on NIST standards.</li>
+                                <li>Led UI/UX revamp changes, created new APIs, and delivered critical hotfixes to resolve customer‑facing issues.</li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <!-- Experience Tab -->
-                    <div class="tab-pane" id="experience">
-                        <div class="timeline">
-                            <div class="timeline-item" data-aos="fade-left" data-aos-delay="200">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content">
-                                    <h3>Staff Software Engineer</h3>
-                                    <h4>Druva, Pune</h4>
-                                    <p class="timeline-date">July 2023 — Present</p>
-                                    <ul>
-                                        <li>Reduced Lambda execution time by 50% by implementing JWT caching, resolving timeout issues, and improving the DB connection pooling in golang.</li>
-                                        <li>Designed and developed new Python APIs, Dockerized the build pipeline, and integrated OpenTelemetry with SNS and SQS for better tracing and error monitoring.</li>
-                                        <li>Enhanced UDA encryption and integrated ransomware metadata and analysis based on NIST standards.</li>
-                                        <li>Led UI/UX revamp changes, created new APIs, and delivered critical hotfixes to resolve customer‑facing issues.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content">
-                                    <h3>Software Engineer Intern</h3>
-                                    <h4>Druva, Pune</h4>
-                                    <p class="timeline-date">Jan 2023 — July 2023</p>
-                                    <ul>
-                                        <li>Addressed SAST vulnerabilities by improving JWK decoding and securing public keys using the AWS SSM Parameter Store.</li>
-                                        <li>Automated database upgrades and improved API performance by optimizing queries and indexes.</li>
-                                        <li>Fixed multiple bugs, including lock wait timeouts, inconsistent file paths, and binary incompatibility issues.</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            <div class="timeline-item" data-aos="fade-left" data-aos-delay="600">
-                                <div class="timeline-marker"></div>
-                                <div class="timeline-content">
-                                    <h3>Backend Developer</h3>
-                                    <h4>Freelancing, Remote</h4>
-                                    <p class="timeline-date">July 2021 — Jan 2022</p>
-                                    <ul>
-                                        <li>Developed RESTful APIs using Node.js to handle data operations for e‑Commerce features like basket, cart, filters, searching, sorting, and orders.</li>
-                                        <li>Implemented APIs to import product data from Excel sheets and integrate it into the system, enhancing the product management process.</li>
-                                    </ul>
-                                </div>
-                            </div>
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="400">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Software Engineer Intern</h3>
+                            <h4>Druva, Pune</h4>
+                            <p class="timeline-date">Jan 2023 — July 2023</p>
+                            <ul>
+                                <li>Addressed SAST vulnerabilities by improving JWK decoding and securing public keys using the AWS SSM Parameter Store.</li>
+                                <li>Automated database upgrades and improved API performance by optimizing queries and indexes.</li>
+                                <li>Fixed multiple bugs, including lock wait timeouts, inconsistent file paths, and binary incompatibility issues.</li>
+                            </ul>
                         </div>
                     </div>
                     
-                    <!-- Certifications Tab -->
-                    <div class="tab-pane" id="certifications">
-                        <div class="certifications-grid">
-                            <div class="certification-card" data-aos="zoom-in" data-aos-delay="200">
-                                <div class="cert-icon">
-                                    <i class="fas fa-trophy"></i>
-                                </div>
-                                <h3>Smart India Hackathon (SIH) 2022</h3>
-                                <h4>Finalist</h4>
-                                <p>Achieved finalist position in the prestigious Smart India Hackathon, showcasing innovative problem-solving skills and technical expertise.</p>
-                            </div>
-                            
-                            <div class="certification-card" data-aos="zoom-in" data-aos-delay="400">
-                                <div class="cert-icon">
-                                    <i class="fab fa-google"></i>
-                                </div>
-                                <h3>Google KickStart Round H</h3>
-                                <h4>Global Rank 1264</h4>
-                                <p>Participated in Google KickStart programming competition and achieved a global rank of 1264, demonstrating strong algorithmic and coding skills.</p>
-                            </div>
-                            
-                            <div class="certification-card" data-aos="zoom-in" data-aos-delay="600">
-                                <div class="cert-icon">
-                                    <i class="fas fa-code"></i>
-                                </div>
-                                <h3>PCSB Sudo Code Programming Contest</h3>
-                                <h4>Ranked 26th</h4>
-                                <p>Achieved 26th rank in the PCSB Sudo Code Programming Contest, showcasing competitive programming abilities and problem-solving skills.</p>
-                            </div>
+                    <div class="timeline-item" data-aos="fade-left" data-aos-delay="600">
+                        <div class="timeline-marker"></div>
+                        <div class="timeline-content">
+                            <h3>Backend Developer</h3>
+                            <h4>Freelancing, Remote</h4>
+                            <p class="timeline-date">July 2021 — Jan 2022</p>
+                            <ul>
+                                <li>Developed RESTful APIs using Node.js to handle data operations for e‑Commerce features like basket, cart, filters, searching, sorting, and orders.</li>
+                                <li>Implemented APIs to import product data from Excel sheets and integrate it into the system, enhancing the product management process.</li>
+                            </ul>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications & Awards Section -->
+    <section id="certifications" class="certifications">
+        <div class="container">
+            <div class="section-header" data-aos="fade-up">
+                <h2 class="section-title">Certifications & Awards</h2>
+                <p class="section-subtitle">My achievements and recognitions</p>
+            </div>
+            
+            <div class="certifications-content">
+                <div class="certifications-grid">
+                    <div class="certification-card" data-aos="zoom-in" data-aos-delay="200">
+                        <div class="cert-icon">
+                            <i class="fas fa-trophy"></i>
+                        </div>
+                        <h3>Smart India Hackathon (SIH) 2022</h3>
+                        <h4>Finalist</h4>
+                        <p>Achieved finalist position in the prestigious Smart India Hackathon, showcasing innovative problem-solving skills and technical expertise.</p>
+                    </div>
+                    
+                    <div class="certification-card" data-aos="zoom-in" data-aos-delay="400">
+                        <div class="cert-icon">
+                            <i class="fab fa-google"></i>
+                        </div>
+                        <h3>Google KickStart Round H</h3>
+                        <h4>Global Rank 1264</h4>
+                        <p>Participated in Google KickStart programming competition and achieved a global rank of 1264, demonstrating strong algorithmic and coding skills.</p>
+                    </div>
+                    
+                    <div class="certification-card" data-aos="zoom-in" data-aos-delay="600">
+                        <div class="cert-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3>PCSB Sudo Code Programming Contest</h3>
+                        <h4>Ranked 26th</h4>
+                        <p>Achieved 26th rank in the PCSB Sudo Code Programming Contest, showcasing competitive programming abilities and problem-solving skills.</p>
                     </div>
                 </div>
                 

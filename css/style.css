@@ -1009,54 +1009,103 @@ section {
     transition: all 0.3s ease;
 }
 
-/* ===== RESUME SECTION ===== */
-.resume {
+/* ===== EDUCATION SECTION ===== */
+.education {
     padding: 5rem 0;
     background: var(--bg-secondary);
     overflow: hidden;
 }
 
-.resume-tabs {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
+.education-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ===== EXPERIENCE SECTION ===== */
+.experience {
+    padding: 5rem 0;
+    background: var(--bg-primary);
+    overflow: hidden;
+}
+
+.experience-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* ===== CERTIFICATIONS & AWARDS SECTION ===== */
+.certifications {
+    padding: 5rem 0;
+    background: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.certifications-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
     margin-bottom: 3rem;
-    flex-wrap: wrap;
-    overflow: hidden;
 }
 
-.tab-btn {
-    padding: 1rem 2rem;
-    border: 2px solid var(--primary-color);
-    background: transparent;
-    color: var(--primary-color);
-    border-radius: 0.5rem;
-    cursor: pointer;
+.certification-card {
+    background: var(--bg-primary);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    box-shadow: var(--shadow-light);
     transition: all 0.3s ease;
-    font-weight: 500;
+    border: 1px solid var(--border-color);
     overflow: hidden;
 }
 
-.tab-btn.active,
-.tab-btn:hover {
-    background: var(--primary-color);
+.certification-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-heavy);
+}
+
+.cert-icon {
+    width: 80px;
+    height: 80px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
     color: white;
 }
 
-.tab-content {
-    position: relative;
+.certification-card h3 {
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-size: 1.3rem;
+}
+
+.certification-card h4 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.certification-card p {
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.resume-download {
+    text-align: center;
+    margin-top: 3rem;
     overflow: hidden;
 }
 
-.tab-pane {
-    display: none;
-}
-
-.tab-pane.active {
-    display: block;
-}
-
-/* Timeline */
+/* Timeline Styles (used by Education and Experience sections) */
 .timeline {
     position: relative;
     max-width: 800px;
@@ -1132,63 +1181,6 @@ section {
     color: var(--text-muted);
     font-size: 0.9rem;
     margin-bottom: 1rem;
-}
-
-/* Certifications Grid */
-.certifications-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
-    max-width: 100%;
-    width: 100%;
-    overflow-x: hidden;
-}
-
-.certification-card {
-    background: var(--bg-primary);
-    padding: 2rem;
-    border-radius: 1rem;
-    box-shadow: var(--shadow-light);
-    text-align: center;
-    transition: all 0.3s ease;
-    border: 1px solid var(--border-color);
-    display: block;
-}
-
-.certification-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-medium);
-}
-
-.cert-icon {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    display: block;
-}
-
-.certification-card h3 {
-    color: var(--text-primary);
-    margin-bottom: 0.5rem;
-    font-size: 1.5rem;
-}
-
-.certification-card h4 {
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-}
-
-.certification-card p {
-    color: var(--text-secondary);
-    line-height: 1.6;
-}
-
-.resume-download {
-    text-align: center;
-    margin-top: 3rem;
-    overflow: hidden;
 }
 
 /* ===== CONTACT SECTION ===== */

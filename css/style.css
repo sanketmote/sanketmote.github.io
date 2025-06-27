@@ -671,20 +671,21 @@ section {
 
 .category-btn {
     padding: 0.75rem 1.5rem;
-    border: 2px solid var(--primary-color);
-    background: transparent;
-    color: var(--primary-color);
-    border-radius: 2rem;
-    font-weight: 500;
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
     cursor: pointer;
     transition: all 0.3s ease;
     font-size: 1rem;
+    font-weight: 500;
 }
 
 .category-btn.active,
 .category-btn:hover {
     background: var(--primary-color);
     color: white;
+    border-color: var(--primary-color);
     transform: translateY(-2px);
 }
 
@@ -700,63 +701,71 @@ section {
 
 .skill-card {
     background: var(--bg-primary);
-    padding: 1.5rem;
+    padding: 2rem;
     border-radius: 1rem;
+    text-align: center;
     box-shadow: var(--shadow-light);
     transition: all 0.3s ease;
     border: 1px solid var(--border-color);
-    display: block;
-    text-align: center;
-    max-width: 280px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     width: 100%;
 }
 
 .skill-card:hover {
     transform: translateY(-5px);
-    box-shadow: var(--shadow-heavy);
+    box-shadow: var(--shadow-medium);
 }
 
 .skill-icon {
-    font-size: 2.5rem;
+    font-size: 3rem;
     color: var(--primary-color);
-    margin-bottom: 0.75rem;
-    text-align: center;
-    display: block;
+    margin-bottom: 1rem;
 }
 
 .skill-card h3 {
-    text-align: center;
-    margin-bottom: 0.75rem;
     color: var(--text-primary);
-    font-size: 1.25rem;
-}
-
-.skill-bar {
-    width: 100%;
-    height: 8px;
-    background: var(--bg-tertiary);
-    border-radius: 4px;
-    overflow: hidden;
     margin-bottom: 0.5rem;
-    display: block;
+    font-size: 1.2rem;
 }
 
-.skill-progress {
-    height: 100%;
-    background: var(--gradient-primary);
-    width: 0;
-    transition: width 1s ease-in-out;
-    border-radius: 4px;
-    display: block;
-}
-
-.skill-percentage {
-    display: block;
-    text-align: center;
-    font-weight: 600;
-    color: var(--primary-color);
+.skill-card p {
+    color: var(--text-secondary);
     font-size: 0.9rem;
-    margin-top: 0.5rem;
+    line-height: 1.5;
+}
+
+/* Skills view more button */
+.skills-view-more {
+    text-align: center;
+    margin-top: 2rem;
+    display: none; /* Hidden by default on desktop */
+}
+
+.skills-view-more .btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.9rem;
+    background: var(--gradient-primary);
+    color: white;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.skills-view-more .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-medium);
+}
+
+/* Show view more button on mobile */
+@media (max-width: 768px) {
+    .skills-view-more {
+        display: block;
+    }
 }
 
 /* ===== PROJECTS SECTION ===== */
@@ -1647,6 +1656,12 @@ section {
     .contact-item {
         margin: 0;
         border-radius: 0.75rem;
+    }
+    
+    .skill-card {
+        height: auto;
+        min-height: auto;
+        padding: 0.75rem;
     }
     
     .skill-card:hover,

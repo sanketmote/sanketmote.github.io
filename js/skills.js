@@ -3,6 +3,7 @@ class SkillsManager {
     constructor() {
         this.skillsData = null;
         this.currentCategory = 'all';
+        this.showAllSkills = false;
         this.init();
     }
 
@@ -54,10 +55,52 @@ class SkillsManager {
         `).join('');
 
         skillsContainer.innerHTML = skillsHTML;
+        
+        // Apply mobile view logic
+        this.applyMobileView();
+    }
+
+    applyMobileView() {
+        const skillCards = document.querySelectorAll('.skill-card');
+        const viewMoreBtn = document.getElementById('viewMoreSkills');
+        
+        if (!skillCards.length || !viewMoreBtn) return;
+
+        // Check if we're on mobile (768px and below)
+        const isMobile = window.innerWidth <= 768;
+        
+        if (isMobile) {
+            // Show only first 6 skills initially (3 rows of 2 cards each)
+            skillCards.forEach((card, index) => {
+                if (index < 6) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = this.showAllSkills ? 'block' : 'none';
+                }
+            });
+            
+            // Show/hide view more button based on number of skills
+            if (skillCards.length > 6) {
+                viewMoreBtn.style.display = 'block';
+                viewMoreBtn.innerHTML = this.showAllSkills 
+                    ? '<i class="fas fa-minus"></i> Show Less' 
+                    : '<i class="fas fa-plus"></i> View More Skills';
+            } else {
+                viewMoreBtn.style.display = 'none';
+            }
+        } else {
+            // On desktop, show all skills and hide view more button
+            skillCards.forEach(card => {
+                card.style.display = 'block';
+            });
+            viewMoreBtn.style.display = 'none';
+        }
     }
 
     bindEvents() {
         const categoriesContainer = document.getElementById('skillsCategories');
+        const viewMoreBtn = document.getElementById('viewMoreSkills');
+        
         if (!categoriesContainer) return;
 
         categoriesContainer.addEventListener('click', (e) => {
@@ -72,8 +115,22 @@ class SkillsManager {
 
                 // Update current category and re-render skills
                 this.currentCategory = e.target.dataset.category;
+                this.showAllSkills = false; // Reset view more state when changing category
                 this.renderSkills();
             }
+        });
+
+        // View more button event
+        if (viewMoreBtn) {
+            viewMoreBtn.addEventListener('click', () => {
+                this.showAllSkills = !this.showAllSkills;
+                this.applyMobileView();
+            });
+        }
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            this.applyMobileView();
         });
     }
 }

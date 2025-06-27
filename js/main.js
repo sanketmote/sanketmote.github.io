@@ -450,6 +450,63 @@ function initContactForm() {
     });
 }
 
+// ===== SEND EMAIL FUNCTION =====
+function sendEmail(event) {
+    event.preventDefault();
+    
+    // Get form data
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const subject = document.getElementById('subject').value.trim();
+    const message = document.getElementById('message').value.trim();
+    
+    // Validate required fields
+    if (!name || !email || !subject || !message) {
+        showNotification('Please fill in all required fields.', 'error');
+        return;
+    }
+    
+    // Validate email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        showNotification('Please enter a valid email address.', 'error');
+        return;
+    }
+    
+    // Create email body with form details
+    const emailBody = `Hello Sanket,
+
+I hope this message finds you well. I am reaching out regarding the following:
+
+Name: ${name}
+Email: ${email}
+Subject: ${subject}
+
+Message:
+${message}
+
+Best regards,
+${name}`;
+    
+    // Encode the subject and body for URL
+    const encodedSubject = encodeURIComponent(subject);
+    const encodedBody = encodeURIComponent(emailBody);
+    
+    // Create Gmail compose URL
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=sanketmote01@gmail.com&su=${encodedSubject}&body=${encodedBody}`;
+    
+    // Open Gmail in a new tab
+    window.open(gmailUrl, '_blank');
+    
+    // Show success notification
+    showNotification('Opening Gmail...', 'success');
+    
+    // Reset form after a short delay
+    setTimeout(() => {
+        document.getElementById('contactForm').reset();
+    }, 1000);
+}
+
 // ===== LOADING SCREEN =====
 function initLoadingScreen() {
     const loadingScreen = document.getElementById('loadingScreen');

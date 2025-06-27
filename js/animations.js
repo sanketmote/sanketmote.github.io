@@ -1080,6 +1080,149 @@ function initWaterWavesCursor() {
     });
 }
 
+// ===== MOBILE TOUCH ANIMATIONS =====
+function initMobileTouchAnimations() {
+    // Check if device supports touch
+    if (!('ontouchstart' in window) && navigator.maxTouchPoints <= 0) {
+        return; // Don't initialize on non-touch devices
+    }
+    
+    // Interactive elements that should have touch animations
+    const interactiveElements = document.querySelectorAll(
+        'a, button, .btn, .skill-card, .project-card, .certification-card, .nav-link, .category-btn, .tab-btn, .social-link, .contact-item, input, textarea'
+    );
+    
+    // Add touch event listeners
+    interactiveElements.forEach(element => {
+        element.addEventListener('touchstart', handleTouchStart, { passive: false });
+        element.addEventListener('touchend', handleTouchEnd, { passive: false });
+    });
+    
+    // Touch start handler
+    function handleTouchStart(e) {
+        const touch = e.touches[0];
+        const x = touch.clientX;
+        const y = touch.clientY;
+        
+        // Create mobile touch effects
+        createMobileTouchRipple(x, y);
+        createMobileTouchSplash(x, y);
+        createMobileTouchWave(x, y);
+        
+        // Add active class for visual feedback
+        this.classList.add('touch-active');
+    }
+    
+    // Touch end handler
+    function handleTouchEnd(e) {
+        // Remove active class
+        this.classList.remove('touch-active');
+    }
+    
+    // Create mobile touch ripple effect
+    function createMobileTouchRipple(x, y) {
+        const ripple = document.createElement('div');
+        ripple.className = 'mobile-touch-ripple';
+        ripple.style.left = x + 'px';
+        ripple.style.top = y + 'px';
+        document.body.appendChild(ripple);
+        
+        // Remove ripple after animation
+        setTimeout(() => {
+            if (ripple.parentNode) {
+                ripple.parentNode.removeChild(ripple);
+            }
+        }, 600);
+    }
+    
+    // Create mobile touch splash effect
+    function createMobileTouchSplash(x, y) {
+        const splashCount = 3 + Math.random() * 3;
+        
+        for (let i = 0; i < splashCount; i++) {
+            const splash = document.createElement('div');
+            splash.className = 'mobile-touch-splash';
+            
+            // Random positioning around touch point
+            const spread = 15 + Math.random() * 20;
+            const angle = (i / splashCount) * Math.PI * 2 + Math.random() * 0.5;
+            const offsetX = Math.cos(angle) * spread;
+            const offsetY = Math.sin(angle) * spread;
+            
+            splash.style.left = (x + offsetX) + 'px';
+            splash.style.top = (y + offsetY) + 'px';
+            
+            // Random size
+            const size = 4 + Math.random() * 6;
+            splash.style.width = size + 'px';
+            splash.style.height = size + 'px';
+            
+            document.body.appendChild(splash);
+            
+            // Remove splash after animation
+            setTimeout(() => {
+                if (splash.parentNode) {
+                    splash.parentNode.removeChild(splash);
+                }
+            }, 1000);
+        }
+    }
+    
+    // Create mobile touch wave effect
+    function createMobileTouchWave(x, y) {
+        const wave = document.createElement('div');
+        wave.className = 'mobile-touch-wave';
+        wave.style.left = x + 'px';
+        wave.style.top = y + 'px';
+        document.body.appendChild(wave);
+        
+        // Remove wave after animation
+        setTimeout(() => {
+            if (wave.parentNode) {
+                wave.parentNode.removeChild(wave);
+            }
+        }, 800);
+    }
+    
+    // Add CSS for touch active state
+    const style = document.createElement('style');
+    style.textContent = `
+        .touch-active {
+            transform: scale(0.95) !important;
+            transition: transform 0.1s ease !important;
+        }
+        
+        .btn.touch-active {
+            transform: scale(0.95) translateY(1px) !important;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2) !important;
+        }
+        
+        .skill-card.touch-active,
+        .project-card.touch-active,
+        .certification-card.touch-active {
+            transform: scale(0.98) translateY(2px) !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15) !important;
+        }
+        
+        .nav-link.touch-active,
+        .category-btn.touch-active,
+        .tab-btn.touch-active {
+            background: rgba(102, 126, 234, 0.1) !important;
+        }
+        
+        .social-link.touch-active {
+            transform: scale(0.9) !important;
+            box-shadow: 0 0 20px rgba(102, 126, 234, 0.4) !important;
+        }
+        
+        .contact-item.touch-active {
+            transform: scale(0.98) translateY(1px) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1) !important;
+        }
+    `;
+    document.head.appendChild(style);
+}
+
 // ===== INITIALIZE ALL ANIMATIONS =====
 function initAllAnimations() {
     // Initialize all animation functions
@@ -1100,8 +1243,11 @@ function initAllAnimations() {
     initEnhancedModals();
     initEnhancedTooltips();
     
-    // Initialize water waves cursor
+    // Initialize water waves cursor (desktop only)
     initWaterWavesCursor();
+    
+    // Initialize mobile touch animations (mobile only)
+    initMobileTouchAnimations();
     
     // Initialize existing functions
     initParallax();

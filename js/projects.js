@@ -301,7 +301,16 @@ function createProjectSlide(project, index) {
     
     slide.innerHTML = `
         <div class="project-image">
-            <img src="${project.image}" alt="${project.title}" onerror="this.src='assets/images/projects/default.jpg'">
+            <img src="${project.image}" alt="${project.title}" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="project-image-fallback" style="display: none;">
+                <div class="project-name-placeholder">
+                    <h3>${project.title}</h3>
+                    <div class="project-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+            </div>
             <div class="project-overlay">
                 <div class="project-links">
                     <a href="${project.live}" class="project-link" target="_blank">
@@ -396,9 +405,30 @@ function createProjectCard(project, index) {
     card.setAttribute('data-category', project.category);
     card.style.animationDelay = `${index * 0.1}s`;
     
+    // Create fallback image display with project name
+    const imageFallback = `
+        <div class="project-image-fallback">
+            <div class="project-name-placeholder">
+                <h3>${project.title}</h3>
+                <div class="project-icon">
+                    <i class="fas fa-code"></i>
+                </div>
+            </div>
+        </div>
+    `;
+    
     card.innerHTML = `
         <div class="project-image">
-            <img src="${project.image}" alt="${project.title}" onerror="this.src='assets/images/projects/default.jpg'">
+            <img src="${project.image}" alt="${project.title}" 
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <div class="project-image-fallback" style="display: none;">
+                <div class="project-name-placeholder">
+                    <h3>${project.title}</h3>
+                    <div class="project-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                </div>
+            </div>
             <div class="project-overlay">
                 <div class="project-links">
                     <a href="${project.live}" class="project-link" target="_blank">

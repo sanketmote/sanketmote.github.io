@@ -1028,7 +1028,10 @@
     backface-visibility: hidden;
     will-change: transform;
     position: relative;
-    overflow: hidden;
+    overflow: visible;
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
 }
 
 .project-slide::before {
@@ -1124,6 +1127,7 @@
     overflow: hidden;
     margin-bottom: 20px;
     position: relative;
+    flex-shrink: 0;
 }
 
 .project-slide .project-image img {
@@ -1135,6 +1139,51 @@
 
 .project-slide:hover .project-image img {
     transform: scale(1.05);
+}
+
+/* Project Slide Image Fallback Styles */
+.project-slide .project-image-fallback {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    border-radius: 10px;
+}
+
+.project-slide .project-name-placeholder {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+.project-slide .project-name-placeholder h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: white;
+    margin: 0;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    line-height: 1.2;
+}
+
+.project-slide .project-icon {
+    font-size: 2.5rem;
+    opacity: 0.8;
+    color: white;
+}
+
+.project-slide .project-image-fallback:hover {
+    background: linear-gradient(135deg, #0056b3, #004085);
+    transform: scale(1.02);
+    transition: all 0.3s ease;
 }
 
 /* Project overlay for slider slides */
@@ -1198,8 +1247,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    overflow: hidden;
+    overflow: visible;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .project-slide .project-tag {
@@ -1210,6 +1260,15 @@
     font-size: 0.8rem;
     font-weight: 500;
     box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+    display: inline-block;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.project-slide .project-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+    background: linear-gradient(145deg, #0056b3, #004085);
 }
 
 .project-slide .project-links {
@@ -1524,8 +1583,9 @@
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    overflow: hidden;
+    overflow: visible;
     margin-bottom: 20px;
+    width: 100%;
 }
 
 .project-slide .project-tag {
@@ -1536,6 +1596,15 @@
     font-size: 0.8rem;
     font-weight: 500;
     box-shadow: 0 2px 8px rgba(0, 123, 255, 0.3);
+    display: inline-block;
+    white-space: nowrap;
+    transition: all 0.3s ease;
+}
+
+.project-slide .project-tag:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
+    background: linear-gradient(145deg, #0056b3, #004085);
 }
 
 .project-slide .project-links {

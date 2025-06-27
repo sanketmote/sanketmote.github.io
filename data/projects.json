@@ -13,12 +13,20 @@
       "name": "Web Development"
     },
     {
-      "id": "backend",
-      "name": "Backend"
+      "id": "full-stack",
+      "name": "Full Stack Development"
     },
     {
       "id": "data",
       "name": "Data Analysis"
+    },
+    {
+      "id": "bot",
+      "name": "Chatbots & Automation"
+    },
+    {
+      "id": "other",
+      "name": "Other"
     }
   ],
   "projects": [
@@ -26,37 +34,37 @@
       "title": "Drushti",
       "category": "ai",
       "description": "Developed the Drushti app, designed to assist visually impaired users by providing audible navigation through object detection and distance measurement.",
-      "image": "assets/images/python.png",
+      "image": "assets/images/drushti.png",
       "technologies": ["Python", "TensorFlow", "OpenCV", "Flutter", "Flask"],
-      "github": "#",
-      "live": "#"
+      "github": "https://github.com/sanketmote/Drushti",
+      "live": ""
     },
     {
       "title": "WCE SPACE",
       "category": "web",
       "description": "A comprehensive web platform for Walchand College of Engineering students to access academic resources, announcements, and student services.",
       "image": "assets/images/wcespace.PNG",
-      "technologies": ["Python", "Flask", "HTML", "CSS", "JavaScript", "Bootstrap"],
-      "github": "https://github.com/pavanshinde7494/WCE-SPACE",
+      "technologies": ["Node.js", "EJS", "MongoDB", "CSS", "JavaScript", "Bootstrap"],
+      "github": "https://github.com/sanketmote/WCESPACE",
       "live": "https://wcespace.herokuapp.com/home"
     },
     {
       "title": "Portfolio Website",
       "category": "web",
       "description": "A modern, responsive portfolio website showcasing professional experience, skills, and projects with interactive animations.",
-      "image": "assets/images/portolio_website.JPG",
+      "image": "assets/images/portolio_website.png",
       "technologies": ["HTML", "CSS", "JavaScript", "Bootstrap"],
-      "github": "#",
+      "github": "https://github.com/sanketmote/sanketmote.github.io",
       "live": "https://sanketmote.github.io/"
     },
     {
       "title": "Match Pairing System",
-      "category": "backend",
-      "description": "Developed a backend system for matching and pairing algorithms with efficient data processing and API endpoints.",
+      "category": "other",
+      "description": "A Python-based matching pairs game, where similar tiles/images/cards are matched by the player.",
       "image": "assets/images/match_paring.JPG",
-      "technologies": ["Python", "Flask", "SQLAlchemy", "PostgreSQL"],
-      "github": "#",
-      "live": "#"
+      "technologies": ["Python"],
+      "github": "https://github.com/sanketmote/Matching-Pair-game",
+      "live": "https://replit.com/@callofdutyof/Matching-Pair-game"
     },
     {
       "title": "COVID-19 Tracker",
@@ -64,8 +72,75 @@
       "description": "A data analysis project tracking COVID-19 cases with interactive visualizations and real-time data updates.",
       "image": "assets/images/covid3.png",
       "technologies": ["Python", "Pandas", "Matplotlib", "Plotly"],
-      "github": "#",
+      "github": "https://github.com/sanketmote/COVID19-Data-Analysis-and-Visualization",
       "live": "#"
+    },
+
+    {
+      "title": "UnScript Hackathon – Mercuri",
+      "category": "web",
+      "description": "Hackathon project named ‘Mercuri’ for UnScript—details demoing innovative web functionality.",
+      "image": "assets/images/hackathon.png",
+      "technologies": ["HTML", "CSS", "JavaScript", "Node.js"],
+      "github": "https://github.com/sanketmote/UnScriptHackathon",
+      "live": ""
+    },
+    {
+      "title": "Object Detection Using Tflite",
+      "category": "ai",
+      "description": "Android app showcasing real‑time object detection using TensorFlow Lite.",
+      "image": "assets/images/tflite.png",
+      "technologies": ["Android", "TensorFlow Lite", "Flutter"],
+      "github": "https://github.com/sanketmote/Object-Detetcion-Using-Tflie",
+      "live": ""
+    },
+   
+    {
+      "title": "Organ Management",
+      "category": "web",
+      "description": "Platform for managing organ donation workflows and registrations.",
+      "image": "assets/images/om.png",
+      "technologies": ["Next.js", "React"],
+      "github": "https://github.com/sanketmote/OrganManagement",
+      "live": "https://organ-management.vercel.app/"
+    }
+  ],
+  "old_projects": [
+    {
+      "title": "Tic‑Toc‑Toe",
+      "category": "web",
+      "description": "Classic Tic‑Tac‑Toe game built for the browser with JavaScript logic and interactive UI.",
+      "image": "assets/images/tictactoe.png",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/sanketmote/Tic-Toc-Toe",
+      "live": ""
+    },
+    {
+      "title": "Exam Management System",
+      "category": "full-stack",
+      "description": "A web-based exam management system with user roles, exam scheduling, and result generation.",
+      "image": "assets/images/exam.png",
+      "technologies": ["Node.js", "Express", "MongoDB"],
+      "github": "https://github.com/sanketmote/ExamManagementSystem",
+      "live": ""
+    },
+    {
+      "title": "DrumKit",
+      "category": "web",
+      "description": "A virtual drum kit implemented in JavaScript—playable via keyboard or mouse clicks, with responsive sound effects.",
+      "image": "assets/images/drumkit.png",
+      "technologies": ["HTML", "CSS", "JavaScript"],
+      "github": "https://github.com/sanketmote/DrumKit",
+      "live": ""
+    },
+    {
+      "title": "Sahayak Bot",
+      "category": "bot",
+      "description": "A helper chatbot built with Python for automating [explain tasks, e.g. reminders, simple responses].",
+      "image": "assets/images/python.png",
+      "technologies": ["Python"],
+      "github": "https://github.com/sanketmote/sahayak_bot",
+      "live": ""
     },
     {
       "title": "Calculator App",
@@ -77,4 +152,4 @@
       "live": "#"
     }
   ]
-} 
+}

@@ -337,11 +337,9 @@ function initTypingAnimation() {
     if (!typingElement) return;
     
     const texts = [
-        'Backend Engineer',
-        'Python Developer',
+        'Software Engineer',
         'Golang Developer',
-        'AWS Specialist',
-        'System Designer'
+        'Python Developer'
     ];
     
     let textIndex = 0;

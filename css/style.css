@@ -1798,7 +1798,7 @@ section {
     z-index: 1000;
 }
 
-.back-to-top.visible {
+.back-to-top.active {
     opacity: 1;
     visibility: visible;
 }

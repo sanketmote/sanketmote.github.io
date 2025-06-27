@@ -12,9 +12,8 @@ let autoSlideInterval = null;
 let autoSlideDelay = 4000; // 4 seconds between slides
 
 // Initialize projects when DOM is loaded
-document.addEventListener('DOMContentLoaded', function() {
-    console.log('Projects.js loaded');
-    
+document.addEventListener('DOMContentLoaded', function () {
+
     // Fetch data from JSON files
     fetchProjectsData();
 });
@@ -22,22 +21,19 @@ document.addEventListener('DOMContentLoaded', function() {
 // Fetch projects data from JSON file
 async function fetchProjectsData() {
     try {
-        console.log('Fetching projects data from JSON...');
         const response = await fetch('data/projects.json');
-        
+
         if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+            throw new Error('Failed to fetch projects data');
         }
-        
+
         const data = await response.json();
         projectsData = data.projects;
         categoriesData = data.categories;
-        
-        console.log('Projects data loaded successfully:', projectsData.length, 'projects');
-        
+
         // Initialize based on current page
         initializePage();
-        
+
     } catch (error) {
         console.error('Error fetching projects data:', error);
         // Fallback to default data if fetch fails
@@ -47,7 +43,6 @@ async function fetchProjectsData() {
 
 // Fallback data in case JSON fetch fails
 function loadFallbackData() {
-    console.log('Loading fallback data...');
     projectsData = [
         {
             title: "Portfolio Website",
@@ -80,7 +75,7 @@ function loadFallbackData() {
             featured: true
         }
     ];
-    
+
     categoriesData = [
         { id: "all", name: "All" },
         { id: "ai", name: "AI/ML" },
@@ -88,7 +83,7 @@ function loadFallbackData() {
         { id: "backend", name: "Backend" },
         { id: "data", name: "Data Analysis" }
     ];
-    
+
     initializePage();
 }
 
@@ -97,15 +92,13 @@ function initializePage() {
     // Check if we're on the home page (has slider)
     const slider = document.getElementById('projectsSlider');
     if (slider) {
-        console.log('Initializing projects slider for home page');
         initializeProjectsSlider();
     }
-    
+
     // Check if we're on the projects page (has grid and categories)
     const projectsGrid = document.getElementById('projectsGrid');
     const categoriesContainer = document.getElementById('projectsCategories');
     if (projectsGrid || categoriesContainer) {
-        console.log('Initializing projects page');
         initializeProjectsPage();
     }
 }
@@ -115,24 +108,23 @@ function initializeProjectsSlider() {
     const slider = document.getElementById('projectsSlider');
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    
+
     if (!slider) return;
-    
+
     // Get featured projects (first 5 for slider)
     const featuredProjects = projectsData.slice(0, 5);
     totalSlides = featuredProjects.length;
-    
-    console.log(`Creating ${totalSlides} featured project slides`);
-    
+
+
     // Create slides
     featuredProjects.forEach((project, index) => {
         const slide = createProjectSlide(project, index);
         slider.appendChild(slide);
     });
-    
+
     // Set initial position
     updateSliderPosition();
-    
+
     // Add event listeners
     if (prevBtn) {
         prevBtn.addEventListener('click', () => {
@@ -144,7 +136,7 @@ function initializeProjectsSlider() {
             startAutoSlide();
         });
     }
-    
+
     if (nextBtn) {
         nextBtn.addEventListener('click', () => {
             stopAutoSlide();
@@ -155,17 +147,17 @@ function initializeProjectsSlider() {
             startAutoSlide();
         });
     }
-    
+
     // Update slides per view based on screen size
     updateSlidesPerView();
     window.addEventListener('resize', () => {
         updateSlidesPerView();
         updateSlideVisibility();
     });
-    
+
     // Start auto-sliding
     startAutoSlide();
-    
+
     // Pause auto-slide on hover
     slider.addEventListener('mouseenter', stopAutoSlide);
     slider.addEventListener('mouseleave', startAutoSlide);
@@ -176,7 +168,7 @@ function startAutoSlide() {
     if (autoSlideInterval) {
         clearInterval(autoSlideInterval);
     }
-    
+
     autoSlideInterval = setInterval(() => {
         if (currentSlide < totalSlides - slidesPerView) {
             currentSlide++;
@@ -199,24 +191,24 @@ function stopAutoSlide() {
 function updateSliderPosition() {
     const slider = document.getElementById('projectsSlider');
     if (!slider) return;
-    
+
     const slideWidth = 350 + 32; // slide width + gap
     const translateX = -currentSlide * slideWidth;
-    
+
     slider.style.transform = `translateX(${translateX}px)`;
-    
+
     // Update button states
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
-    
+
     if (prevBtn) {
         prevBtn.disabled = currentSlide === 0;
     }
-    
+
     if (nextBtn) {
         nextBtn.disabled = currentSlide >= totalSlides - slidesPerView;
     }
-    
+
     // Update slide visibility and tilt effects
     updateSlideVisibility();
 }
@@ -225,37 +217,37 @@ function updateSliderPosition() {
 function updateSlideVisibility() {
     const slides = document.querySelectorAll('.project-slide');
     const sliderContainer = document.querySelector('.projects-showcase');
-    
+
     if (!sliderContainer) return;
-    
+
     const containerRect = sliderContainer.getBoundingClientRect();
     const containerLeft = containerRect.left;
     const containerRight = containerRect.right;
     const containerCenter = containerLeft + (containerRight - containerLeft) / 2;
-    
+
     slides.forEach((slide, index) => {
         const slideRect = slide.getBoundingClientRect();
         const slideLeft = slideRect.left;
         const slideRight = slideRect.right;
         const slideWidth = slideRect.width;
         const slideCenter = slideLeft + slideWidth / 2;
-        
+
         // Calculate visibility percentage
         const visibleLeft = Math.max(slideLeft, containerLeft);
         const visibleRight = Math.min(slideRight, containerRight);
         const visibleWidth = Math.max(0, visibleRight - visibleLeft);
         const visibilityPercentage = (visibleWidth / slideWidth) * 100;
-        
+
         // Calculate distance from center for 3D effect
         const distanceFromCenter = Math.abs(slideCenter - containerCenter);
         const maxDistance = (containerRight - containerLeft) / 2;
         const depthFactor = distanceFromCenter / maxDistance;
-        
+
         // Remove existing classes and inline styles
         slide.classList.remove('fully-visible', 'partial-visible');
         slide.style.transform = '';
         slide.style.opacity = '';
-        
+
         // Apply classes based on visibility and position
         if (visibilityPercentage >= 80) {
             // Fully visible - center slide
@@ -263,12 +255,12 @@ function updateSlideVisibility() {
         } else if (visibilityPercentage > 30) {
             // Partially visible - apply 3D depth effect
             slide.classList.add('partial-visible');
-            
+
             // Add custom transform based on position
             const zDepth = -150 - (depthFactor * 100); // Much deeper for better 3D effect
             const rotation = slideCenter < containerCenter ? 30 : -30; // More rotation
             const scale = 0.8 - (depthFactor * 0.2); // Smaller scale for depth
-            
+
             slide.style.transform = `translateY(-5px) rotateY(${rotation}deg) translateZ(${zDepth}px) scale(${scale})`;
         } else {
             // Barely visible - hide completely
@@ -281,7 +273,7 @@ function updateSlideVisibility() {
 // Update slides per view based on screen size
 function updateSlidesPerView() {
     const width = window.innerWidth;
-    
+
     if (width < 768) {
         slidesPerView = 1;
     } else if (width < 1024) {
@@ -289,7 +281,7 @@ function updateSlidesPerView() {
     } else {
         slidesPerView = 3;
     }
-    
+
     updateSliderPosition();
 }
 
@@ -298,7 +290,7 @@ function createProjectSlide(project, index) {
     const slide = document.createElement('div');
     slide.className = 'project-slide';
     slide.style.animationDelay = `${index * 0.1}s`;
-    
+
     slide.innerHTML = `
         <div class="project-image">
             <img src="${project.image}" alt="${project.title}" 
@@ -330,7 +322,7 @@ function createProjectSlide(project, index) {
             </div>
         </div>
     `;
-    
+
     return slide;
 }
 
@@ -338,14 +330,13 @@ function createProjectSlide(project, index) {
 function initializeProjectsPage() {
     const projectsGrid = document.getElementById('projectsGrid');
     const categoriesContainer = document.getElementById('projectsCategories');
-    
-    console.log('Initializing projects page with', projectsData.length, 'projects');
-    
+
+
     // Create categories
     if (categoriesContainer) {
         createProjectCategories(categoriesContainer);
     }
-    
+
     // Create projects grid
     if (projectsGrid) {
         createProjectsGrid(projectsGrid, projectsData);
@@ -354,34 +345,33 @@ function initializeProjectsPage() {
 
 // Create project categories
 function createProjectCategories(container) {
-    console.log('Creating categories:', categoriesData);
-    
+
     categoriesData.forEach(category => {
         const button = document.createElement('button');
         button.className = 'category-btn';
         button.setAttribute('data-category', category.id);
         button.textContent = category.name;
-        
+
         if (category.id === 'all') {
             button.classList.add('active');
         }
-        
+
         button.addEventListener('click', () => {
             // Remove active class from all buttons
             container.querySelectorAll('.category-btn').forEach(btn => btn.classList.remove('active'));
             button.classList.add('active');
-            
+
             // Filter projects
-            const filteredProjects = category.id === 'all' 
-                ? projectsData 
+            const filteredProjects = category.id === 'all'
+                ? projectsData
                 : projectsData.filter(project => project.category === category.id);
-            
+
             const projectsGrid = document.getElementById('projectsGrid');
             if (projectsGrid) {
                 createProjectsGrid(projectsGrid, filteredProjects);
             }
         });
-        
+
         container.appendChild(button);
     });
 }
@@ -389,9 +379,8 @@ function createProjectCategories(container) {
 // Create projects grid
 function createProjectsGrid(container, projects) {
     container.innerHTML = '';
-    
-    console.log(`Rendering ${projects.length} projects`);
-    
+
+
     projects.forEach((project, index) => {
         const projectCard = createProjectCard(project, index);
         container.appendChild(projectCard);
@@ -404,7 +393,7 @@ function createProjectCard(project, index) {
     card.className = 'project-card';
     card.setAttribute('data-category', project.category);
     card.style.animationDelay = `${index * 0.1}s`;
-    
+
     // Create fallback image display with project name
     const imageFallback = `
         <div class="project-image-fallback">
@@ -416,7 +405,7 @@ function createProjectCard(project, index) {
             </div>
         </div>
     `;
-    
+
     card.innerHTML = `
         <div class="project-image">
             <img src="${project.image}" alt="${project.title}" 
@@ -448,6 +437,6 @@ function createProjectCard(project, index) {
             </div>
         </div>
     `;
-    
+
     return card;
 } 

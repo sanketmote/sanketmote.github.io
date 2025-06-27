@@ -27,7 +27,6 @@ class ScrollSpeedAnimations {
 
     setupScrollListener() {
         let scrollTimeout;
-        let debugCounter = 0;
         
         window.addEventListener('scroll', () => {
             const currentTime = Date.now();
@@ -47,12 +46,6 @@ class ScrollSpeedAnimations {
             // Calculate average scroll speed
             this.scrollSpeed = this.scrollSpeedHistory.reduce((a, b) => a + b, 0) / this.scrollSpeedHistory.length;
             
-            // Debug logging (every 10th scroll event)
-            debugCounter++;
-            if (debugCounter % 10 === 0) {
-                console.log(`Scroll Speed: ${this.scrollSpeed.toFixed(3)} px/ms`);
-            }
-            
             // Update last values
             this.lastScrollTop = currentScrollTop;
             this.lastScrollTime = currentTime;
@@ -63,7 +56,6 @@ class ScrollSpeedAnimations {
             // Set timeout to update animations after scroll stops
             scrollTimeout = setTimeout(() => {
                 this.updateAnimationDelays();
-                console.log('Scroll stopped, updated animation delays');
             }, 200);
         });
     }
@@ -192,11 +184,6 @@ class ScrollSpeedAnimations {
     adjustElement(element) {
         this.adjustElementAnimation(element);
     }
-
-    // Debug method to log scroll speed
-    logScrollSpeed() {
-        console.log('Current scroll speed:', this.scrollSpeed, 'px/ms');
-    }
 }
 
 // Initialize scroll speed animations
@@ -207,7 +194,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Small delay to ensure AOS is loaded
     setTimeout(() => {
         scrollSpeedAnimations = new ScrollSpeedAnimations();
-        console.log('Scroll speed animations initialized');
     }, 100);
 });
 

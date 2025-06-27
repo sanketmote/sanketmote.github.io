@@ -583,6 +583,10 @@
     animation: bounce 2s infinite;
 }
 
+.back-to-top.active {
+    animation: bounce 2s infinite;
+}
+
 .back-to-top:hover {
     animation: none;
     transform: scale(1.1);
